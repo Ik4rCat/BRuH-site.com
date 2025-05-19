@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRuH-site.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">BRuH</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Игры <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="games/new.html">Новые игры</a></li>
+                        <li><a href="games/popular.html">Популярные</a></li>
+                        <li><a href="games/upcoming.html">Скоро выйдут</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Гайды <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="guides/cyberpunk.html">Cyberpunk 2077</a></li>
+                        <li><a href="guides/elden-ring.html">Elden Ring</a></li>
+                        <li><a href="guides/god-of-war.html">God of War</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>ИГРЫ<br>КАК<br>ИСКУССТВО</h1>
+                <p>Исследуйте мир игр через призму культуры и творчества</p>
+                <a href="#new-games" class="cta-button">Начать</a>
+            </div>
+        </section>
+
+        <section id="new-games" class="games-section">
+            <h2>Новые игры</h2>
+            <div class="games-grid">
+                <!-- Карточки игр будут добавлены через JavaScript -->
+            </div>
+        </section>
+
+        <section id="guides" class="guides-section">
+            <h2>Гайды</h2>
+            <div class="guides-grid">
+                <!-- Гайды будут добавлены через JavaScript -->
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>О нас</h2>
+            <div class="about-content">
+                <p>Мы создаем пространство, где игры рассматриваются не только как развлечение, но и как форма искусства. Наша цель - показать глубину и многообразие игрового мира, его влияние на культуру и общество.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BRuH</h3>
+                <p>Игры как искусство</p>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>contact@bruh-site.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Социальные сети</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BRuH. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
