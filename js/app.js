@@ -1,48 +1,28 @@
-/**
- * Not Just a Game - Основной JavaScript файл
- * 2025 год
- */
-
-// Ждем загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Not Just a Game - игровой портал (2025)');
     
-    // Удаляем прелоадер
     initPreloader();
     
-    // Инициализация анимаций
     initAnimations();
     
-    // Обработка событий
     setupEventListeners();
     
-    // Инициализация анимаций прокрутки
     initScrollAnimations();
     
-    // Загрузка сохраненной темы
     loadSavedTheme();
 });
 
-/**
- * Инициализация прелоадера
- */
 function initPreloader() {
     const preloader = document.querySelector('.preloader');
     if (preloader) {
-        // Скрываем прелоадер через 800мс
         setTimeout(() => {
             preloader.classList.add('hidden');
-            // Полностью удаляем из DOM после анимации
             setTimeout(() => preloader.remove(), 500);
         }, 800);
     }
 }
 
-/**
- * Инициализация анимаций с помощью классов CSS
- */
 function initAnimations() {
-    // Анимация заголовка на главной
     const heroTitle = document.querySelector('.hero__title');
     if (heroTitle) {
         const titleLines = heroTitle.querySelectorAll('.hero__title-line');
@@ -52,7 +32,6 @@ function initAnimations() {
         });
     }
     
-    // Анимация карточек игр
     const gameCards = document.querySelectorAll('.game-card');
     if (gameCards.length) {
         gameCards.forEach((card, index) => {
@@ -61,7 +40,6 @@ function initAnimations() {
         });
     }
     
-    // Анимация элементов гайдов
     const guideItems = document.querySelectorAll('.guide-item');
     if (guideItems.length) {
         guideItems.forEach((item, index) => {
@@ -71,17 +49,12 @@ function initAnimations() {
     }
 }
 
-/**
- * Установка обработчиков событий
- */
 function setupEventListeners() {
-    // Обработчик события для переключения темы
     const themeToggle = document.querySelector('.header__theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
     
-    // Анимация при наведении на карточки
     const cards = document.querySelectorAll('.game-card, .guide-item');
     cards.forEach(card => {
         card.addEventListener('mouseenter', () => {
@@ -95,7 +68,6 @@ function setupEventListeners() {
         });
     });
     
-    // Обработчик для навигационных ссылок с плавной прокруткой
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -113,15 +85,10 @@ function setupEventListeners() {
     });
 }
 
-/**
- * Инициализация анимаций при прокрутке
- */
 function initScrollAnimations() {
-    // Добавление классов для анимации при прокрутке
     const scrollElements = document.querySelectorAll('.scroll-animate');
     const staggerLists = document.querySelectorAll('.stagger-list');
     
-    // Функция проверки видимости элемента
     const isElementInViewport = (el, offset = 100) => {
         const rect = el.getBoundingClientRect();
         return (
@@ -129,7 +96,6 @@ function initScrollAnimations() {
         );
     };
     
-    // Функция обработки анимации при прокрутке
     const handleScrollAnimation = () => {
         scrollElements.forEach(el => {
             if (isElementInViewport(el)) {
@@ -144,22 +110,16 @@ function initScrollAnimations() {
         });
     };
     
-    // Вызываем функцию сразу и при прокрутке
     handleScrollAnimation();
     window.addEventListener('scroll', handleScrollAnimation);
 }
 
-/**
- * Переключение между светлой и темной темой
- */
 function toggleTheme() {
     const body = document.body;
     const isDarkTheme = body.classList.toggle('dark-theme');
     
-    // Сохраняем предпочтение пользователя в localStorage
     localStorage.setItem('darkTheme', isDarkTheme);
     
-    // Анимация переключения
     const themeIcon = document.querySelector('.theme-icon');
     if (themeIcon) {
         themeIcon.classList.add('animate-spin');
@@ -168,13 +128,9 @@ function toggleTheme() {
         }, 300);
     }
     
-    // Обновляем иконку переключателя темы
     updateThemeIcon(isDarkTheme);
 }
 
-/**
- * Обновление иконки переключателя темы
- */
 function updateThemeIcon(isDarkTheme) {
     const themeToggle = document.querySelector('.header__theme-toggle');
     if (themeToggle) {
@@ -193,9 +149,6 @@ function updateThemeIcon(isDarkTheme) {
     }
 }
 
-/**
- * Проверяем, если пользователь уже выбирал темную тему ранее
- */
 function loadSavedTheme() {
     const savedTheme = localStorage.getItem('darkTheme');
     
