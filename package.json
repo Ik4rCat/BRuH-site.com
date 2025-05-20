@@ -1,0 +1,29 @@
+{
+  "name": "not-just-a-game",
+  "private": true,
+  "version": "2025.1.0",
+  "description": "Современный портал о видеоиграх (2025)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "games",
+    "gaming",
+    "portal",
+    "reviews",
+    "guides",
+    "2025"
+  ],
+  "author": "Not Just a Game Team",
+  "license": "MIT",
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "swiper": "^11.0.6"
+  },
+  "devDependencies": {
+    "vite": "^5.4.19"
+  }
+}

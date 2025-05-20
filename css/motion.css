@@ -1,0 +1,209 @@
+@import 'theme.css';
+
+/* Базовые анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes glitch {
+    0% { transform: skewX(-5deg) translateX(2px); }
+    10% { transform: skewX(5deg) translateX(-2px); }
+    20% { transform: none; }
+    100% { transform: none; }
+}
+
+/* Классы анимаций */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s var(--transition-easing) forwards;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.6s var(--transition-easing) forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.6s var(--transition-easing) forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.6s var(--transition-easing) forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s var(--transition-easing) forwards;
+}
+
+.animate-pulse {
+    animation: pulse 3s var(--transition-easing) infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-glitch {
+    animation: glitch 0.3s infinite alternate;
+}
+
+/* Задержки анимаций */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Переходы для компонентов */
+.transition-all {
+    transition: all var(--transition-normal);
+}
+
+.transition-transform {
+    transition: transform var(--transition-normal);
+}
+
+.transition-opacity {
+    transition: opacity var(--transition-normal);
+}
+
+.transition-colors {
+    transition: color var(--transition-normal), background-color var(--transition-normal);
+}
+
+/* Hover эффекты */
+.hover-lift {
+    transition: transform var(--transition-normal);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+.hover-scale {
+    transition: transform var(--transition-normal);
+}
+
+.hover-scale:hover {
+    transform: scale(1.03);
+}
+
+.hover-shadow {
+    transition: box-shadow var(--transition-normal);
+}
+
+.hover-shadow:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* Анимации для загрузчика */
+.loader {
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+.dark-theme .loader {
+    border-color: rgba(255, 255, 255, 0.1);
+    border-top-color: var(--primary);
+}
+
+/* Анимация для прелоадера */
+.preloader {
+    animation: fadeOut 0.5s 0.8s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* Анимация прокрутки для элементов */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s var(--transition-easing), transform 0.8s var(--transition-easing);
+}
+
+.scroll-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Стаггер-анимация для списков */
+.stagger-list > * {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.stagger-list.in-view > * {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s var(--transition-easing), transform 0.5s var(--transition-easing);
+}
+
+.stagger-list.in-view > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-list.in-view > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-list.in-view > *:nth-child(3) { transition-delay: 200ms; }
+.stagger-list.in-view > *:nth-child(4) { transition-delay: 300ms; }
+.stagger-list.in-view > *:nth-child(5) { transition-delay: 400ms; }
+.stagger-list.in-view > *:nth-child(6) { transition-delay: 500ms; }
+.stagger-list.in-view > *:nth-child(7) { transition-delay: 600ms; }
+.stagger-list.in-view > *:nth-child(8) { transition-delay: 700ms; }
+.stagger-list.in-view > *:nth-child(9) { transition-delay: 800ms; }
+.stagger-list.in-view > *:nth-child(10) { transition-delay: 900ms; } 

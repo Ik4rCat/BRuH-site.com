@@ -3,97 +3,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRuH-site.com</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Not Just a Game - Современный игровой портал (2025)</title>
+    
+    <!-- Мета-теги -->
+    <meta name="description" content="Not Just a Game - современный портал о видеоиграх. Обзоры, гайды, новости (2025 год).">
+    <meta name="keywords" content="игры, видеоигры, гайды, обзоры, новости, 2025, игровой портал">
+    <meta name="author" content="Not Just a Game Team">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Not Just a Game - Современный игровой портал (2025)">
+    <meta property="og:description" content="Современный портал о видеоиграх. Актуальная информация на 2025 год.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://notjustagame.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Стили -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/motion.css">
+    
+    <!-- Прелоадер -->
+    <style>
+        :root {
+            --header-height: 70px;
+            --primary: #e10600;
+            --primary-dark: #b30500;
+            --accent: #f0f0f0;
+            --accent-dark: #e0e0e0;
+            --bg-light: #ffffff;
+            --bg-dark: #121212;
+            --text-light: #333333;
+            --text-dark: #f5f5f5;
+        }
+        body {
+            padding-top: var(--header-height);
+            position: relative;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+        }
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .preloader-content {
+            text-align: center;
+        }
+        
+        .preloader-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .preloader-logo::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-dark);
+            transform: scaleX(0);
+            animation: lineGrow 1.5s infinite alternate;
+            transform-origin: left;
+        }
+        
+        @keyframes lineGrow {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+        
+        .preloader-text {
+            font-size: 1rem;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+        
+        .dark-theme .preloader {
+            background: var(--bg-dark);
+        }
+        
+        .dark-theme .preloader-text {
+            color: var(--text-dark);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">BRuH</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Главная</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Игры <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="games/new.html">Новые игры</a></li>
-                        <li><a href="games/popular.html">Популярные</a></li>
-                        <li><a href="games/upcoming.html">Скоро выйдут</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Гайды <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="guides/cyberpunk.html">Cyberpunk 2077</a></li>
-                        <li><a href="guides/elden-ring.html">Elden Ring</a></li>
-                        <li><a href="guides/god-of-war.html">God of War</a></li>
-                    </ul>
-                </li>
-                <li><a href="about.html">О нас</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
+    <!-- Прелоадер -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Not Just a Game</div>
+            <p class="preloader-text">Загрузка современного игрового опыта...</p>
+        </div>
+    </div>
+    
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">Not Just a Game</a>
+            <nav class="header__nav">
+                <a href="pages/new.html" class="header__link">Новинки</a>
+                <a href="pages/popular.html" class="header__link">Популярное</a>
+                <a href="pages/upcoming.html" class="header__link">Ожидаемые</a>
+                <a href="pages/guides.html" class="header__link">Гайды</a>
+            </nav>
+            <button class="header__theme-toggle" aria-label="Переключить тему">
+                <svg class="theme-icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path class="sun" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    <path class="moon" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                </svg>
+            </button>
+        </div>
     </header>
-
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <h1>ИГРЫ<br>КАК<br>ИСКУССТВО</h1>
-                <p>Исследуйте мир игр через призму культуры и творчества</p>
-                <a href="#new-games" class="cta-button">Начать</a>
+    
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container hero__container">
+            <h1 class="hero__title">
+                <span class="hero__title-line animate-fade-in-up delay-100">Добро пожаловать на</span>
+                <span class="hero__title-line hero__title-brand animate-fade-in-up delay-200">Not Just a Game</span>
+                <span class="hero__title-line animate-fade-in-up delay-300">Игровой портал 2025 года</span>
+            </h1>
+            <p class="hero__description animate-fade-in-up delay-400">
+                Ваш источник самой актуальной информации о новых и популярных играх, обзоров, гайдов и эксклюзивного контента. Мы не просто говорим об играх — мы в них живём.
+            </p>
+            <div class="hero__buttons animate-fade-in-up delay-500">
+                <a href="pages/new.html" class="btn btn-primary">Новые игры</a>
+                <a href="pages/popular.html" class="btn btn-secondary">Популярное</a>
             </div>
-        </section>
-
-        <section id="new-games" class="games-section">
-            <h2>Новые игры</h2>
+        </div>
+    </section>
+    
+    <!-- Секция популярных игр -->
+    <section class="games-section section-light">
+        <div class="container">
+            <h2 class="section-title">Популярные игры</h2>
             <div class="games-grid">
-                <!-- Карточки игр будут добавлены через JavaScript -->
+                <!-- Cyberpunk 2077 -->
+                <article class="game-card">
+                    <div class="game-card__image-container">
+                        <img 
+                            src="https://image.api.playstation.com/vulcan/ap/rnd/202310/0214/0ce49921b34e5be1d5a14d7817ce9ce5edbe0302e77470.jpg" 
+                            alt="Cyberpunk 2077: Ultimate Edition"
+                            class="game-card__image"
+                            loading="lazy"
+                        >
+                        <div class="game-card__rating">
+                            <span class="game-card__rating-number">9.7</span>
+                        </div>
+                    </div>
+                    <div class="game-card__content">
+                        <h3 class="game-card__title">Cyberpunk 2077: Ultimate Edition</h3>
+                        <p class="game-card__description">Окончательная версия культовой игры с расширением Phantom Liberty и всеми улучшениями.</p>
+                        <div class="game-card__meta">
+                            <span class="game-card__genre">Action RPG</span>
+                            <span class="game-card__release">2024-2025</span>
+                        </div>
+                        <a href="pages/game-cyberpunk-2077.html" class="game-card__link">
+                            Подробнее
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M1 8h14m-7 7l7-7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Baldur's Gate 3 -->
+                <article class="game-card">
+                    <div class="game-card__image-container">
+                        <img 
+                            src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_BaldursGate3.jpg" 
+                            alt="Baldur's Gate 3"
+                            class="game-card__image"
+                            loading="lazy"
+                        >
+                        <div class="game-card__rating">
+                            <span class="game-card__rating-number">9.9</span>
+                        </div>
+                    </div>
+                    <div class="game-card__content">
+                        <h3 class="game-card__title">Baldur's Gate 3</h3>
+                        <p class="game-card__description">Эпическая ролевая игра от Larian Studios, которая переопределила жанр RPG.</p>
+                        <div class="game-card__meta">
+                            <span class="game-card__genre">RPG</span>
+                            <span class="game-card__release">2023-2025</span>
+                        </div>
+                        <a href="pages/game-baldurs-gate-3.html" class="game-card__link">
+                            Подробнее
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M1 8h14m-7 7l7-7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Starfield -->
+                <article class="game-card">
+                    <div class="game-card__image-container">
+                        <img 
+                            src="https://images.ctfassets.net/rporu91m20dc/4M2W9YZ2giPQdDnrH4yw71/f0c175d380a2491c04c34d7d1b37396e/Starfield_Key_Art_Thumbnail_1920x1080.jpg" 
+                            alt="Starfield"
+                            class="game-card__image"
+                            loading="lazy"
+                        >
+                        <div class="game-card__rating">
+                            <span class="game-card__rating-number">9.0</span>
+                        </div>
+                    </div>
+                    <div class="game-card__content">
+                        <h3 class="game-card__title">Starfield</h3>
+                        <p class="game-card__description">Космическая эпопея от создателей Fallout и The Elder Scrolls с сотнями звездных систем.</p>
+                        <div class="game-card__meta">
+                            <span class="game-card__genre">RPG</span>
+                            <span class="game-card__release">2023-2025</span>
+                        </div>
+                        <a href="pages/game-starfield.html" class="game-card__link">
+                            Подробнее
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M1 8h14m-7 7l7-7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
             </div>
-        </section>
-
-        <section id="guides" class="guides-section">
-            <h2>Гайды</h2>
-            <div class="guides-grid">
-                <!-- Гайды будут добавлены через JavaScript -->
+            <div class="games-section-footer">
+                <a href="pages/popular.html" class="btn btn-primary">Все популярные игры</a>
             </div>
-        </section>
-
-        <section id="about" class="about-section">
-            <h2>О нас</h2>
-            <div class="about-content">
-                <p>Мы создаем пространство, где игры рассматриваются не только как развлечение, но и как форма искусства. Наша цель - показать глубину и многообразие игрового мира, его влияние на культуру и общество.</p>
+        </div>
+    </section>
+    
+    <!-- Секция новинок -->
+    <section class="games-section section-dark">
+        <div class="container">
+            <h2 class="section-title">Новинки</h2>
+            <div class="games-grid">
+                <!-- GTA 6 -->
+                <article class="game-card">
+                    <div class="game-card__image-container">
+                        <img 
+                            src="https://media.gq-magazine.co.uk/photos/6398e3e283d243d1e4deb4b1/16:9/w_2560%2Cc_limit/gta6-what-we-know-so-far.jpg" 
+                            alt="Grand Theft Auto VI"
+                            class="game-card__image"
+                            loading="lazy"
+                        >
+                        <div class="game-card__rating">
+                            <span class="game-card__rating-number">9.8</span>
+                        </div>
+                    </div>
+                    <div class="game-card__content">
+                        <h3 class="game-card__title">Grand Theft Auto VI</h3>
+                        <p class="game-card__description">Долгожданное продолжение культовой серии с возвращением в Вайс-Сити и новыми героями.</p>
+                        <div class="game-card__meta">
+                            <span class="game-card__genre">Action/Adventure</span>
+                            <span class="game-card__release">08.03.2025</span>
+                        </div>
+                        <a href="pages/game-gta-6.html" class="game-card__link">
+                            Подробнее
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M1 8h14m-7 7l7-7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Horizon 3 -->
+                <article class="game-card">
+                    <div class="game-card__image-container">
+                        <img 
+                            src="https://image.api.playstation.com/vulcan/ap/rnd/202201/0712/iXRkYQQVtVYRaqBBHG8OwsJ4.png" 
+                            alt="Horizon 3: New Dawn"
+                            class="game-card__image"
+                            loading="lazy"
+                        >
+                        <div class="game-card__rating">
+                            <span class="game-card__rating-number">9.5</span>
+                        </div>
+                    </div>
+                    <div class="game-card__content">
+                        <h3 class="game-card__title">Horizon 3: New Dawn</h3>
+                        <p class="game-card__description">Элой отправляется в новое приключение, чтобы спасти мир от еще большей угрозы.</p>
+                        <div class="game-card__meta">
+                            <span class="game-card__genre">Action RPG</span>
+                            <span class="game-card__release">18.02.2025</span>
+                        </div>
+                        <a href="pages/game-horizon-3.html" class="game-card__link">
+                            Подробнее
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M1 8h14m-7 7l7-7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Dragon Age: Veilguard -->
+                <article class="game-card">
+                    <div class="game-card__image-container">
+                        <img 
+                            src="https://image.api.playstation.com/vulcan/ap/rnd/202306/0510/de5e0fa63d2e3a159ca3b3c2e090e1b4e678c0c3680bd363.jpg" 
+                            alt="Dragon Age: The Veilguard"
+                            class="game-card__image"
+                            loading="lazy"
+                        >
+                        <div class="game-card__rating">
+                            <span class="game-card__rating-number">9.1</span>
+                        </div>
+                    </div>
+                    <div class="game-card__content">
+                        <h3 class="game-card__title">Dragon Age: The Veilguard</h3>
+                        <p class="game-card__description">Новая глава в мире Тедаса с захватывающим сюжетом и глубокой ролевой системой.</p>
+                        <div class="game-card__meta">
+                            <span class="game-card__genre">RPG</span>
+                            <span class="game-card__release">15.01.2025</span>
+                        </div>
+                        <a href="pages/game-dragon-age-veilguard.html" class="game-card__link">
+                            Подробнее
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M1 8h14m-7 7l7-7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>BRuH</h3>
-                <p>Игры как искусство</p>
+            <div class="games-section-footer">
+                <a href="pages/new.html" class="btn btn-primary">Все новые игры</a>
             </div>
-            <div class="footer-section">
-                <h3>Контакты</h3>
-                <p>contact@bruh-site.com</p>
+        </div>
+    </section>
+    
+    <!-- Секция гайдов -->
+    <section class="guides-section">
+        <div class="container">
+            <h2 class="section-title">Гайды</h2>
+            <div class="guides-list">
+                <!-- Cyberpunk 2077 -->
+                <article class="guide-item">
+                    <div class="game-card__image-container">
+                        <img 
+                            src="https://image.api.playstation.com/vulcan/ap/rnd/202310/0214/0ce49921b34e5be1d5a14d7817ce9ce5edbe0302e77470.jpg" 
+                            alt="Cyberpunk 2077: Phantom Liberty"
+                            class="game-card__image"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="guide-item__content">
+                        <h3 class="guide-item__title">
+                            <a href="pages/guides/cyberpunk-phantom-liberty-walkthrough.html">Полное прохождение Phantom Liberty</a>
+                        </h3>
+                        <div class="guide-item__meta">
+                            <span>Cyberpunk 2077</span> • <span>15.01.2025</span>
+                        </div>
+                        <p class="guide-item__description">
+                            Подробное руководство по всем миссиям дополнения Phantom Liberty, включая секреты и выборы.
+                        </p>
+                    </div>
+                </article>
+                
+                <!-- Baldur's Gate 3 -->
+                <article class="guide-item">
+                    <div class="game-card__image-container">
+                        <img 
+                            src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_BaldursGate3.jpg" 
+                            alt="Baldur's Gate 3"
+                            class="game-card__image"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="guide-item__content">
+                        <h3 class="guide-item__title">
+                            <a href="pages/guides/baldurs-gate-3-best-builds.html">Лучшие билды для всех классов в Baldur's Gate 3</a>
+                        </h3>
+                        <div class="guide-item__meta">
+                            <span>Baldur's Gate 3</span> • <span>23.02.2025</span>
+                        </div>
+                        <p class="guide-item__description">
+                            Оптимальные билды для всех 12 классов с подробным объяснением выбора способностей.
+                        </p>
+                    </div>
+                </article>
+                
+                <!-- Elden Ring -->
+                <article class="guide-item">
+                    <div class="game-card__image-container">
+                        <img 
+                            src="https://assets.xboxservices.com/assets/48/65/48650862-0dbc-4ff6-b404-c13b9d0e3667.jpg?n=Elden-Ring_Shadow-of-the-Erdtree_530x424.jpg" 
+                            alt="Elden Ring: Shadow of the Erdtree"
+                            class="game-card__image"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="guide-item__content">
+                        <h3 class="guide-item__title">
+                            <a href="pages/guides/elden-ring-erdtree-bosses.html">Как победить всех боссов в Shadow of the Erdtree</a>
+                        </h3>
+                        <div class="guide-item__meta">
+                            <span>Elden Ring</span> • <span>05.03.2025</span>
+                        </div>
+                        <p class="guide-item__description">
+                            Пошаговые стратегии для победы над всеми боссами дополнения, включая их слабости.
+                        </p>
+                    </div>
+                </article>
             </div>
-            <div class="footer-section">
-                <h3>Социальные сети</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-vk"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-discord"></i></a>
+            <div class="guides-section-footer">
+                <a href="pages/guides.html" class="btn btn-primary">Все гайды</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__column">
+                    <h3 class="footer__title">Not Just a Game</h3>
+                    <p class="footer__description">Современный портал о видеоиграх. Обзоры, новости, гайды. 2025 год.</p>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__subtitle">Разделы</h4>
+                    <ul class="footer__links">
+                        <li><a href="pages/new.html">Новинки</a></li>
+                        <li><a href="pages/popular.html">Популярное</a></li>
+                        <li><a href="pages/upcoming.html">Ожидаемые</a></li>
+                        <li><a href="pages/guides.html">Гайды</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__subtitle">Контакты</h4>
+                    <ul class="footer__links">
+                        <li><a href="mailto:info@notjustagame.com">info@notjustagame.com</a></li>
+                        <li><a href="tel:+71234567890">+7 (123) 456-78-90</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 BRuH. Все права защищены.</p>
+            <div class="footer__copyright">
+                &copy; 2025 Not Just a Game. Все права защищены.
+            </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
+    
+    <!-- Скрипты -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html> 

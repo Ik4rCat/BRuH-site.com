@@ -1,0 +1,76 @@
+/* Основные цвета и переменные */
+:root {
+    /* Цвета */
+    --primary: #e10600;       /* Красный */
+    --primary-dark: #b30500;
+    --primary-light: #ff1a1a;
+    
+    --accent: #f0f0f0;        /* Светло-серый акцент */
+    --accent-dark: #e0e0e0;
+    --accent-light: #f8f8f8;
+    
+    --bg-light: #ffffff;
+    --bg-dark: #121212;        /* Более темный фон для темной темы */
+    --bg-card-dark: #1e1e1e;   /* Фон для карточек в темной теме */
+    --bg-section-dark: #161616; /* Фон для секций в темной теме */
+    
+    --text-light: #333333;
+    --text-dark: #f5f5f5;      /* Более светлый текст для темной темы */
+    
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    
+    /* Типографика */
+    --font-primary: 'Space Grotesk', sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    
+    /* Отступы */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* Радиусы */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    
+    /* Тени */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 10px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Анимации */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-easing: cubic-bezier(0.65, 0, 0.35, 1);
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bouncy: cubic-bezier(0.2, 0.7, 0.4, 1.2);
+    
+    /* Контейнеры */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    
+    /* Высота шапки */
+    --header-height: 70px;
+} 

@@ -1,0 +1,218 @@
+@import 'theme.css';
+
+/* Основные секции */
+.section {
+    padding: var(--spacing-2xl) 0;
+}
+
+.section-light {
+    background-color: var(--bg-light);
+}
+
+.section-dark {
+    background-color: var(--gray-100);
+}
+
+.dark-theme .section-light {
+    background-color: var(--bg-dark);
+}
+
+.dark-theme .section-dark {
+    background-color: var(--bg-section-dark);
+}
+
+/* Макетные классы */
+.page-content {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-2xl);
+}
+
+.page-header {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background-color: var(--gray-100);
+    margin-bottom: var(--spacing-xl);
+}
+
+.dark-theme .page-header {
+    background-color: var(--bg-section-dark);
+}
+
+.page-title {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.page-description {
+    font-size: var(--font-size-lg);
+    max-width: 720px;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+/* Карточки игр на различных страницах */
+.games-page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* Макет страницы гайдов */
+.guides-page-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* Макет страницы детальной информации об игре */
+.game-detail {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: var(--spacing-xl);
+}
+
+.game-detail__main {
+    flex: 1;
+}
+
+.game-detail__sidebar {
+    flex: 0 0 350px;
+}
+
+/* Макет страницы с контентом гайда */
+.guide-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Фильтры гайдов */
+.guides-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: var(--gray-100);
+    border-radius: var(--radius-lg);
+}
+
+.dark-theme .guides-filters {
+    background-color: var(--bg-card-dark);
+}
+
+.guides-filters__group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.guides-filters__label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.guides-filters__select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+.dark-theme .guides-filters__select {
+    background-color: var(--bg-card-dark);
+    color: var(--text-dark);
+    border-color: var(--gray-700);
+}
+
+/* Пагинация */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+}
+
+.pagination__button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    background: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.pagination__button--active,
+.pagination__button:hover {
+    background-color: var(--primary);
+    color: var(--text-dark);
+    border-color: var(--primary);
+}
+
+.pagination__button--next {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.pagination__ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm);
+}
+
+/* Классы для создания колонок */
+.columns-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.columns-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+/* Классы выравнивания */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Медиа запросы */
+@media (max-width: 1024px) {
+    .game-detail {
+        grid-template-columns: 1fr;
+    }
+    
+    .columns-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .columns-2,
+    .columns-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-header {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .page-title {
+        font-size: var(--font-size-3xl);
+    }
+} 
