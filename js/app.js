@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     console.log('Not Just a Game - игровой портал (2025)');
     
     initPreloader();
@@ -10,15 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     
     loadSavedTheme();
+    
+    initSmoothScroll();
 });
 
 function initPreloader() {
     const preloader = document.querySelector('.preloader');
+    
     if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-            setTimeout(() => preloader.remove(), 500);
-        }, 800);
+        window.addEventListener('load', function() {
+            preloader.classList.add('preloader--hidden');
+            
+            setTimeout(function() {
+                preloader.remove();
+            }, 300);
+        });
     }
 }
 
@@ -86,32 +92,53 @@ function setupEventListeners() {
 }
 
 function initScrollAnimations() {
-    const scrollElements = document.querySelectorAll('.scroll-animate');
-    const staggerLists = document.querySelectorAll('.stagger-list');
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
     
-    const isElementInViewport = (el, offset = 100) => {
+    if (animatedElements.length === 0) return;
+    
+    function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight - offset || document.documentElement.clientHeight - offset)
-        );
-    };
-    
-    const handleScrollAnimation = () => {
-        scrollElements.forEach(el => {
-            if (isElementInViewport(el)) {
-                el.classList.add('in-view');
-            }
-        });
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         
-        staggerLists.forEach(list => {
-            if (isElementInViewport(list)) {
-                list.classList.add('in-view');
+        return (
+            rect.top <= windowHeight * 0.8 && 
+            rect.bottom >= 0
+        );
+    }
+    
+    function animateOnScroll() {
+        animatedElements.forEach(element => {
+            if (isElementInViewport(element)) {
+                element.classList.add('animate');
             }
         });
-    };
+    }
     
-    handleScrollAnimation();
-    window.addEventListener('scroll', handleScrollAnimation);
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
+}
+
+function initSmoothScroll() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+    
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 }
 
 function toggleTheme() {
