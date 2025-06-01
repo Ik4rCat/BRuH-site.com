@@ -51,32 +51,6 @@
     --bg-light: var(--bg-dark);
     --bg-card: var(--bg-card-dark);
     --text-light: var(--text-dark);
-    
-    .header {
-        background: var(--bg-dark);
-        border-bottom-color: var(--text-dark);
-    }
-    
-    .card {
-        border-color: var(--text-dark);
-    }
-    
-    .card__image {
-        border-bottom-color: var(--text-dark);
-    }
-    
-    .card__tag {
-        background: var(--bg-dark);
-        border-color: var(--text-dark);
-    }
-    
-    .footer {
-        border-top-color: var(--text-dark);
-    }
-    
-    .footer__bottom {
-        border-top-color: var(--text-dark);
-    }
 }
 
 /* Базовые стили */
@@ -99,6 +73,7 @@ body {
     background: var(--bg-light);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: var(--header-height);
 }
 
 img {
@@ -171,85 +146,6 @@ a {
 
 .nav__link:hover::after {
     width: 100%;
-}
-
-/* Герой */
-.hero {
-    min-height: 100vh;
-    padding: calc(var(--header-height) + var(--spacing-2xl)) 0;
-    display: flex;
-    align-items: center;
-    background: var(--bg-light);
-    color: var(--text-light);
-    position: relative;
-    overflow: hidden;
-    border-bottom: 2px solid var(--text-light);
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('../img/hero-pattern.svg') center/cover;
-    opacity: 0.1;
-}
-
-.hero__content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-}
-
-.hero__title {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: var(--spacing-lg);
-}
-
-.hero__subtitle {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-xl);
-}
-
-.hero__buttons {
-    display: flex;
-    gap: var(--spacing-md);
-}
-
-/* Кнопки */
-.button {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--spacing-md) var(--spacing-xl);
-    font-weight: 600;
-    font-size: 1.125rem;
-    transition: all var(--transition-normal);
-    cursor: pointer;
-    border: 2px solid var(--text-light);
-}
-
-.button--primary {
-    background: var(--text-light);
-    color: var(--bg-light);
-}
-
-.button--primary:hover {
-    background: var(--bg-light);
-    color: var(--text-light);
-}
-
-.button--secondary {
-    background: transparent;
-    color: var(--text-light);
-}
-
-.button--secondary:hover {
-    background: var(--text-light);
-    color: var(--bg-light);
 }
 
 /* Секции */
@@ -340,33 +236,36 @@ a {
     color: var(--text-muted);
 }
 
-.card__rating {
+/* Кнопки */
+.button {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-xl);
     font-weight: 600;
-    color: var(--primary);
+    font-size: 1.125rem;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    border: 2px solid var(--text-light);
 }
 
-.game-link {
+.button--primary {
+    background: var(--text-light);
+    color: var(--bg-light);
+}
+
+.button--primary:hover {
+    background: var(--bg-light);
     color: var(--text-light);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-    position: relative;
 }
 
-.game-link::after {
-    content: '🎮';
-    position: absolute;
-    top: 0;
-    right: -1.5em;
-    opacity: 0;
-    transition: opacity var(--transition-fast);
+.button--secondary {
+    background: transparent;
+    color: var(--text-light);
 }
 
-.game-link:hover {
-    color: var(--primary-light);
-}
-
-.game-link:hover::after {
-    opacity: 1;
+.button--secondary:hover {
+    background: var(--text-light);
+    color: var(--bg-light);
 }
 
 /* Футер */
@@ -481,167 +380,172 @@ a {
     }
 }
 
-/* Анимации */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
-}
-
-/* Стили для страниц гайдов */
-.guide__hero {
-    background: linear-gradient(to right, var(--primary-dark), var(--primary));
-    padding: var(--spacing-2xl) 0;
-    color: white;
-}
-
-.guide__image {
-    width: 100%;
+/* Стили для гайдов */
+.guide-article {
     max-width: 800px;
+    margin: 0 auto;
+    padding-top: var(--header-height);
+}
+
+.guide-article__title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.guide-article__image {
+    width: 100%;
     height: 400px;
     object-fit: cover;
-    border-radius: var(--radius-lg);
-    margin: 0 auto var(--spacing-lg);
-    display: block;
-    box-shadow: var(--shadow-lg);
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
-.guide__title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: var(--spacing-md);
+.guide-article__content {
+    font-size: 16px;
 }
 
-.guide__meta {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    align-items: center;
-    font-size: 0.875rem;
+.guide-article__intro {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
 }
 
-.guide__tag {
-    background: rgba(255, 255, 255, 0.2);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--radius-full);
+.guide-section {
+    margin-bottom: 40px;
 }
 
-.guide__date {
-    opacity: 0.8;
+.guide-section h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-.guide__content {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: var(--spacing-2xl);
-    padding: var(--spacing-2xl) 0;
+.guide-section h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
-.guide__nav {
-    position: sticky;
-    top: calc(var(--header-height) + var(--spacing-lg));
-    height: fit-content;
-    padding: var(--spacing-lg);
-    background: var(--bg-card);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+.guide-section ul {
+    list-style-position: inside;
+    margin-bottom: 20px;
 }
 
-.guide__nav h2 {
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-md);
+.guide-section li {
+    margin-bottom: 10px;
 }
 
-.guide__nav ul {
+.feature-list,
+.secrets-list {
     list-style: none;
 }
 
-.guide__nav a {
-    display: block;
-    padding: var(--spacing-xs) 0;
+.feature-list li,
+.secrets-list li {
+    position: relative;
+    padding-left: 20px;
+}
+
+.feature-list li:before,
+.secrets-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
     color: var(--text-muted);
-    transition: color var(--transition-fast);
 }
 
-.guide__nav a:hover {
-    color: var(--primary);
+.build-card,
+.boss-card,
+.equipment-card,
+.spell-card {
+    background: var(--bg-light);
+    border: 2px solid var(--text-light);
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-.guide__text {
-    font-size: 1.125rem;
-    line-height: 1.7;
+.build-card h4,
+.boss-card h4,
+.equipment-card h4,
+.spell-card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
-.guide__text h2 {
-    font-size: 2rem;
-    margin: var(--spacing-2xl) 0 var(--spacing-lg);
+/* Стили для новостей */
+.news-article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: var(--header-height);
 }
 
-.guide__text h3 {
+.news-article__meta {
+    display: flex;
+    gap: 20px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.news-article__category {
+    padding: 2px 10px;
+    background: var(--bg-light);
+    border: 2px solid var(--text-light);
+}
+
+.news-article__lead {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.news-article__quote {
+    margin: 30px 0;
+    padding: 20px;
+    background: var(--bg-light);
+    border-left: 4px solid var(--text-light);
+    font-style: italic;
+}
+
+.content-block {
+    margin-bottom: 30px;
+}
+
+.news-article__conclusion {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--bg-light);
+    border: 2px solid var(--text-light);
+}
+
+/* Hero секция */
+.hero {
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    align-items: center;
+    background: var(--bg-light);
+    padding: var(--spacing-2xl) 0;
+    border-bottom: 2px solid var(--text-light);
+}
+
+.hero__content {
+    max-width: 800px;
+}
+
+.hero__title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero__subtitle {
     font-size: 1.5rem;
-    margin: var(--spacing-xl) 0 var(--spacing-md);
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-xl);
 }
 
-.guide__text p {
-    margin-bottom: var(--spacing-md);
-}
-
-.guide__text ul,
-.guide__text ol {
-    margin: var(--spacing-md) 0;
-    padding-left: var(--spacing-xl);
-}
-
-.guide__text li {
-    margin-bottom: var(--spacing-sm);
-}
-
-.guide__text img {
-    max-width: 100%;
-    border-radius: var(--radius-lg);
-    margin: var(--spacing-lg) 0;
-}
-
-/* Медиа запросы для гайдов */
-@media (max-width: 1024px) {
-    .guide__content {
-        grid-template-columns: 1fr;
-    }
-
-    .guide__nav {
-        position: static;
-        margin-bottom: var(--spacing-xl);
-    }
-}
-
-@media (max-width: 768px) {
-    .guide__title {
-        font-size: 2rem;
-    }
-
-    .guide__image {
-        height: 300px;
-    }
-
-    .guide__text {
-        font-size: 1rem;
-    }
-
-    .guide__text h2 {
-        font-size: 1.5rem;
-    }
-
-    .guide__text h3 {
-        font-size: 1.25rem;
-    }
+.hero__buttons {
+    display: flex;
+    gap: var(--spacing-md);
 } 
