@@ -1,3 +1,10 @@
+// Инициализация GSAP
+try {
+    gsap.registerPlugin(ScrollTrigger);
+} catch (error) {
+    console.error('Ошибка инициализации GSAP:', error);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Not Just a Game - игровой портал (2025)');
     
@@ -9,8 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     initScrollAnimations();
     
-    loadSavedTheme();
-    
     initSmoothScroll();
 });
 
@@ -18,12 +23,13 @@ function initPreloader() {
     const preloader = document.querySelector('.preloader');
     
     if (preloader) {
-        window.addEventListener('load', function() {
-            preloader.classList.add('preloader--hidden');
-            
-            setTimeout(function() {
-                preloader.remove();
-            }, 300);
+        gsap.to(preloader, {
+            opacity: 0,
+            duration: 0.5,
+            delay: 1,
+            onComplete: () => {
+                preloader.classList.add('hidden');
+            }
         });
     }
 }
@@ -56,11 +62,6 @@ function initAnimations() {
 }
 
 function setupEventListeners() {
-    const themeToggle = document.querySelector('.header__theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-    
     const cards = document.querySelectorAll('.game-card, .guide-item');
     cards.forEach(card => {
         card.addEventListener('mouseenter', () => {
@@ -74,7 +75,48 @@ function setupEventListeners() {
         });
     });
     
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+function initScrollAnimations() {
+    const cards = gsap.utils.toArray('.game-card');
+    if (cards.length) {
+        cards.forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+    }
+}
+
+function initSmoothScroll() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
             if (targetId !== '#') {
@@ -89,101 +131,4 @@ function setupEventListeners() {
             }
         });
     });
-}
-
-function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
-    if (animatedElements.length === 0) return;
-    
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        
-        return (
-            rect.top <= windowHeight * 0.8 && 
-            rect.bottom >= 0
-        );
-    }
-    
-    function animateOnScroll() {
-        animatedElements.forEach(element => {
-            if (isElementInViewport(element)) {
-                element.classList.add('animate');
-            }
-        });
-    }
-    
-    animateOnScroll();
-    window.addEventListener('scroll', animateOnScroll);
-}
-
-function initSmoothScroll() {
-    const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
-    
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-function toggleTheme() {
-    const body = document.body;
-    const isDarkTheme = body.classList.toggle('dark-theme');
-    
-    localStorage.setItem('darkTheme', isDarkTheme);
-    
-    const themeIcon = document.querySelector('.theme-icon');
-    if (themeIcon) {
-        themeIcon.classList.add('animate-spin');
-        setTimeout(() => {
-            themeIcon.classList.remove('animate-spin');
-        }, 300);
-    }
-    
-    updateThemeIcon(isDarkTheme);
-}
-
-function updateThemeIcon(isDarkTheme) {
-    const themeToggle = document.querySelector('.header__theme-toggle');
-    if (themeToggle) {
-        const sunPath = themeToggle.querySelector('.sun');
-        const moonPath = themeToggle.querySelector('.moon');
-        
-        if (sunPath && moonPath) {
-            if (isDarkTheme) {
-                sunPath.style.display = 'none';
-                moonPath.style.display = 'block';
-            } else {
-                sunPath.style.display = 'block';
-                moonPath.style.display = 'none';
-            }
-        }
-    }
-}
-
-function loadSavedTheme() {
-    const savedTheme = localStorage.getItem('darkTheme');
-    
-    if (savedTheme === 'true') {
-        document.body.classList.add('dark-theme');
-        updateThemeIcon(true);
-    } else {
-        document.body.classList.remove('dark-theme');
-        updateThemeIcon(false);
-    }
 } 

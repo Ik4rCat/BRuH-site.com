@@ -3,444 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not Just a Game - Современный игровой портал (2025)</title>
-    
-    <!-- Мета-теги -->
-    <meta name="description" content="Not Just a Game - современный портал о видеоиграх. Обзоры, гайды, новости (2025 год).">
-    <meta name="keywords" content="игры, видеоигры, гайды, обзоры, новости, 2025, игровой портал">
-    <meta name="author" content="Not Just a Game Team">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Not Just a Game - Современный игровой портал (2025)">
-    <meta property="og:description" content="Современный портал о видеоиграх. Актуальная информация на 2025 год.">
-    <meta property="og:image" content="images/og-image.jpg">
-    <meta property="og:url" content="https://notjustagame.com/">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-    <!-- Шрифты -->
+    <title>Not Just a Game - Игровой портал</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Стили -->
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/motion.css">
-    
-    <!-- Прелоадер -->
-    <style>
-        :root {
-            --header-height: 70px;
-            --primary: #e10600;
-            --primary-dark: #b30500;
-            --accent: #f0f0f0;
-            --accent-dark: #e0e0e0;
-            --bg-light: #ffffff;
-            --bg-dark: #121212;
-            --text-light: #333333;
-            --text-dark: #f5f5f5;
-        }
-        body {
-            padding-top: var(--header-height);
-            position: relative;
-            font-family: 'Space Grotesk', sans-serif;
-            margin: 0;
-        }
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out;
-        }
-        
-        .preloader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .preloader-content {
-            text-align: center;
-        }
-        
-        .preloader-logo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .preloader-logo::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: var(--accent-dark);
-            transform: scaleX(0);
-            animation: lineGrow 1.5s infinite alternate;
-            transform-origin: left;
-        }
-        
-        @keyframes lineGrow {
-            0% { transform: scaleX(0); }
-            100% { transform: scaleX(1); }
-        }
-        
-        .preloader-text {
-            font-size: 1rem;
-            color: var(--text-light);
-            opacity: 0.8;
-        }
-        
-        .dark-theme .preloader {
-            background: var(--bg-dark);
-        }
-        
-        .dark-theme .preloader-text {
-            color: var(--text-dark);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Прелоадер -->
-    <div class="preloader">
-        <div class="preloader-content">
-            <div class="preloader-logo">Not Just a Game</div>
-            <p class="preloader-text">Загрузка современного игрового опыта...</p>
-        </div>
-    </div>
-    
-    <!-- Шапка сайта -->
     <header class="header">
-        <div class="container header__container">
-            <a href="index.html" class="header__logo">Not Just a Game</a>
-            <nav class="header__nav">
-                <a href="pages/new.html" class="header__link">Новинки</a>
-                <a href="pages/popular.html" class="header__link">Популярное</a>
-                <a href="pages/upcoming.html" class="header__link">Ожидаемые</a>
-                <a href="pages/guides.html" class="header__link">Гайды</a>
+        <div class="container">
+            <a href="index.html" class="logo">Not Just a Game</a>
+            <nav class="nav">
+                <a href="#games" class="nav__link">Игры</a>
+                <a href="#upcoming" class="nav__link">Ожидаемые</a>
+                <a href="#guides" class="nav__link">Гайды</a>
+                <a href="#news" class="nav__link">Новости</a>
             </nav>
-            <button class="header__theme-toggle" aria-label="Переключить тему">
-                <svg class="theme-icon" width="24" height="24" viewBox="0 0 24 24">
-                    <path class="sun" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                    <path class="moon" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-                </svg>
-            </button>
         </div>
     </header>
-    
-    <!-- Герой секция -->
-    <section class="hero">
-        <div class="container hero__container">
-            <h1 class="hero__title">
-                <span class="hero__title-line animate-fade-in-up delay-100">Добро пожаловать на</span>
-                <span class="hero__title-line hero__title-brand animate-fade-in-up delay-200">Not Just a Game</span>
-                <span class="hero__title-line animate-fade-in-up delay-300">Игровой портал 2025 года</span>
-            </h1>
-            <p class="hero__description animate-fade-in-up delay-400">
-                Ваш источник самой актуальной информации о новых и популярных играх, обзоров, гайдов и эксклюзивного контента. Мы не просто говорим об играх — мы в них живём.
-            </p>
-            <div class="hero__buttons animate-fade-in-up delay-500">
-                <a href="pages/new.html" class="btn btn-primary">Новые игры</a>
-                <a href="pages/popular.html" class="btn btn-secondary">Популярное</a>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Больше чем просто игра</h1>
+                    <p class="hero__subtitle">Гайды, новости и обзоры от экспертов игровой индустрии</p>
+                    <div class="hero__buttons">
+                        <a href="#games" class="button button--primary">Смотреть игры</a>
+                        <a href="#guides" class="button button--secondary">Читать гайды</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Секция популярных игр -->
-    <section class="games-section section-light">
-        <div class="container">
-            <h2 class="section-title">Популярные игры</h2>
-            <div class="games-grid">
-                <!-- Cyberpunk 2077 -->
-                <article class="game-card">
-                    <div class="game-card__image-container">
-                        <img 
-                            src="https://image.api.playstation.com/vulcan/ap/rnd/202310/0214/0ce49921b34e5be1d5a14d7817ce9ce5edbe0302e77470.jpg" 
-                            alt="Cyberpunk 2077: Ultimate Edition"
-                            class="game-card__image"
-                            loading="lazy"
-                        >
-                        <div class="game-card__rating">
-                            <span class="game-card__rating-number">9.7</span>
+        </section>
+
+        <section id="games" class="section">
+            <div class="container">
+                <h2 class="section__title">Популярные игры</h2>
+                <div class="games-grid">
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/Cyberpunk 2077 Phantom Liberty.jpg" alt="Cyberpunk 2077">
+                            <span class="card__tag">RPG</span>
                         </div>
-                    </div>
-                    <div class="game-card__content">
-                        <h3 class="game-card__title">Cyberpunk 2077: Ultimate Edition</h3>
-                        <p class="game-card__description">Окончательная версия культовой игры с расширением Phantom Liberty и всеми улучшениями.</p>
-                        <div class="game-card__meta">
-                            <span class="game-card__genre">Action RPG</span>
-                            <span class="game-card__release">2024-2025</span>
+                        <div class="card__content">
+                            <h3 class="card__title">
+                                <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank" rel="noopener" class="game-link">Cyberpunk 2077: Phantom Liberty</a>
+                            </h3>
+                            <p class="card__description">Новое масштабное дополнение для Cyberpunk 2077 от CD Projekt Red</p>
+                            <div class="card__meta">
+                                <span>PC, PS5, Xbox Series X|S</span>
+                                <span class="card__rating">9.1</span>
+                            </div>
                         </div>
-                        <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" class="game-card__link" target="_blank" rel="noopener">Открыть в Steam</a>
-                    </div>
-                </article>
-                
-                <!-- Baldur's Gate 3 -->
-                <article class="game-card">
-                    <div class="game-card__image-container">
-                        <img 
-                            src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_BaldursGate3.jpg" 
-                            alt="Baldur's Gate 3"
-                            class="game-card__image"
-                            loading="lazy"
-                        >
-                        <div class="game-card__rating">
-                            <span class="game-card__rating-number">9.9</span>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/Baldur's Gate 3.jpeg" alt="Baldur's Gate 3">
+                            <span class="card__tag">RPG</span>
                         </div>
-                    </div>
-                    <div class="game-card__content">
-                        <h3 class="game-card__title">Baldur's Gate 3</h3>
-                        <p class="game-card__description">Эпическая ролевая игра от Larian Studios, которая переопределила жанр RPG.</p>
-                        <div class="game-card__meta">
-                            <span class="game-card__genre">RPG</span>
-                            <span class="game-card__release">2023-2025</span>
+                        <div class="card__content">
+                            <h3 class="card__title">
+                                <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank" rel="noopener" class="game-link">Baldur's Gate 3</a>
+                            </h3>
+                            <p class="card__description">Эпическое приключение в мире Dungeons & Dragons от Larian Studios</p>
+                            <div class="card__meta">
+                                <span>PC, PS5</span>
+                                <span class="card__rating">9.5</span>
+                            </div>
                         </div>
-                        <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" class="game-card__link" target="_blank" rel="noopener">Открыть в Steam</a>
-                    </div>
-                </article>
-                
-                <!-- Starfield -->
-                <article class="game-card">
-                    <div class="game-card__image-container">
-                        <img 
-                            src="https://images.ctfassets.net/rporu91m20dc/4M2W9YZ2giPQdDnrH4yw71/f0c175d380a2491c04c34d7d1b37396e/Starfield_Key_Art_Thumbnail_1920x1080.jpg" 
-                            alt="Starfield"
-                            class="game-card__image"
-                            loading="lazy"
-                        >
-                        <div class="game-card__rating">
-                            <span class="game-card__rating-number">9.0</span>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/Elden Ring Shadow of the Erdtree.png" alt="Elden Ring">
+                            <span class="card__tag">Action RPG</span>
                         </div>
-                    </div>
-                    <div class="game-card__content">
-                        <h3 class="game-card__title">Starfield</h3>
-                        <p class="game-card__description">Космическая эпопея от создателей Fallout и The Elder Scrolls с сотнями звездных систем.</p>
-                        <div class="game-card__meta">
-                            <span class="game-card__genre">RPG</span>
-                            <span class="game-card__release">2023-2025</span>
+                        <div class="card__content">
+                            <h3 class="card__title">
+                                <a href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" rel="noopener" class="game-link">Elden Ring: Shadow of the Erdtree</a>
+                            </h3>
+                            <p class="card__description">Масштабное дополнение для хита от FromSoftware</p>
+                            <div class="card__meta">
+                                <span>PC, PS5, Xbox Series X|S</span>
+                                <span class="card__rating">9.3</span>
+                            </div>
                         </div>
-                        <a href="https://store.steampowered.com/app/1716740/Starfield/" class="game-card__link" target="_blank" rel="noopener">Открыть в Steam</a>
-                    </div>
-                </article>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/S.T.A.L.K.E.R. 2 Heart of Chornobyl.jpg" alt="S.T.A.L.K.E.R. 2">
+                            <span class="card__tag">FPS/RPG</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">
+                                <a href="https://store.steampowered.com/app/1643320/STALKER_2_Heart_of_Chornobyl/" target="_blank" rel="noopener" class="game-link">S.T.A.L.K.E.R. 2: Heart of Chornobyl</a>
+                            </h3>
+                            <p class="card__description">Новая часть легендарной серии. Исследуйте обновленную Зону отчуждения, созданную на Unreal Engine 5.</p>
+                            <div class="card__meta">
+                                <span>PC, Xbox Series X|S</span>
+                                <span class="card__rating">8.7</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="games-section-footer">
-                <a href="pages/popular.html" class="btn btn-primary">Все популярные игры</a>
+        </section>
+
+        <section id="upcoming" class="section">
+            <div class="container">
+                <h2 class="section__title">Ожидаемые игры</h2>
+                <div class="games-grid">
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/GtaVI.png" alt="GTA VI">
+                            <span class="card__tag">Action</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">Grand Theft Auto VI</h3>
+                            <p class="card__description">Долгожданное продолжение культовой серии. Впервые в истории серии - женский протагонист и возвращение в Вайс-Сити.</p>
+                            <div class="card__meta">
+                                <span>2025 год</span>
+                                <span>PS5, Xbox Series X|S</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/marathon.jpg" alt="Marathon">
+                            <span class="card__tag">Shooter</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">
+                                <a href="https://store.steampowered.com/app/3065800/Marathon/" target="_blank" rel="noopener" class="game-link">Marathon</a>
+                            </h3>
+                            <p class="card__description">Новый научно-фантастический шутер от создателей Destiny и Halo. Исследуйте заброшенную космическую станцию.</p>
+                            <div class="card__meta">
+                                <span>2024 год</span>
+                                <span>PC, PS5, Xbox Series X|S</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/Arc raiders.jpg" alt="Arc Raiders">
+                            <span class="card__tag">Action</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">
+                                <a href="https://store.steampowered.com/app/1808500/ARC_Raiders/" target="_blank" rel="noopener" class="game-link">Arc Raiders</a>
+                            </h3>
+                            <p class="card__description">Кооперативный экшен в научно-фантастическом сеттинге от создателей Battlefield. Сражайтесь с механическими захватчиками.</p>
+                            <div class="card__meta">
+                                <span>2024 год</span>
+                                <span>PC, PS5, Xbox Series X|S</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/fable_2025.jpg" alt="Fable">
+                            <span class="card__tag">RPG</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">Fable</h3>
+                            <p class="card__description">Перезапуск легендарной серии RPG от Playground Games. Вернитесь в волшебный мир Альбиона.</p>
+                            <div class="card__meta">
+                                <span>2025 год</span>
+                                <span>PC, Xbox Series X|S</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/Horizon 3 New Dawn.jpg" alt="Horizon 3">
+                            <span class="card__tag">Action/RPG</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">Horizon 3: New Dawn</h3>
+                            <p class="card__description">Продолжение приключений Элой в постапокалиптическом мире, где природа встречается с технологиями.</p>
+                            <div class="card__meta">
+                                <span>2026 год</span>
+                                <span>PS5</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Секция новинок -->
-    <section class="games-section section-dark">
-        <div class="container">
-            <h2 class="section-title">Новинки</h2>
-            <div class="games-grid">
-                <!-- GTA 6 -->
-                <article class="game-card">
-                    <div class="game-card__image-container">
-                        <img 
-                            src="https://media.gq-magazine.co.uk/photos/6398e3e283d243d1e4deb4b1/16:9/w_2560%2Cc_limit/gta6-what-we-know-so-far.jpg" 
-                            alt="Grand Theft Auto VI"
-                            class="game-card__image"
-                            loading="lazy"
-                        >
-                        <div class="game-card__rating">
-                            <span class="game-card__rating-number">9.8</span>
+        </section>
+
+        <section id="guides" class="section">
+            <div class="container">
+                <h2 class="section__title">Популярные гайды</h2>
+                <div class="guides-grid">
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/S.T.A.L.K.E.R. 2 Heart of Chornobyl.jpg" alt="S.T.A.L.K.E.R. 2">
+                            <span class="card__tag">Гайд</span>
                         </div>
-                    </div>
-                    <div class="game-card__content">
-                        <h3 class="game-card__title">Grand Theft Auto VI</h3>
-                        <p class="game-card__description">Долгожданное продолжение культовой серии с возвращением в Вайс-Сити и новыми героями.</p>
-                        <div class="game-card__meta">
-                            <span class="game-card__genre">Action/Adventure</span>
-                            <span class="game-card__release">08.03.2025</span>
+                        <div class="card__content">
+                            <h3 class="card__title">S.T.A.L.K.E.R. 2: Полное прохождение</h3>
+                            <p class="card__description">Подробный гайд по прохождению основной сюжетной линии, побочным заданиям и секретам игры. Карта всех артефактов и тайников.</p>
+                            <a href="#" class="button button--primary">Читать</a>
                         </div>
-                        <a href="https://store.steampowered.com/app/1551320/Grand_Theft_Auto_VI/" class="game-card__link" target="_blank" rel="noopener">Открыть в Steam</a>
-                    </div>
-                </article>
-                
-                <!-- Horizon 3 -->
-                <article class="game-card">
-                    <div class="game-card__image-container">
-                        <img 
-                            src="https://image.api.playstation.com/vulcan/ap/rnd/202201/0712/iXRkYQQVtVYRaqBBHG8OwsJ4.png" 
-                            alt="Horizon 3: New Dawn"
-                            class="game-card__image"
-                            loading="lazy"
-                        >
-                        <div class="game-card__rating">
-                            <span class="game-card__rating-number">9.5</span>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/Baldur's Gate 3.jpeg" alt="Baldur's Gate 3">
+                            <span class="card__tag">Гайд</span>
                         </div>
-                    </div>
-                    <div class="game-card__content">
-                        <h3 class="game-card__title">Horizon 3: New Dawn</h3>
-                        <p class="game-card__description">Элой отправляется в новое приключение, чтобы спасти мир от еще большей угрозы.</p>
-                        <div class="game-card__meta">
-                            <span class="game-card__genre">Action RPG</span>
-                            <span class="game-card__release">18.02.2025</span>
+                        <div class="card__content">
+                            <h3 class="card__title">Лучшие билды для Baldur's Gate 3</h3>
+                            <p class="card__description">Оптимальные сборки персонажей для одиночного и кооперативного прохождения. Советы по прокачке и выбору спутников.</p>
+                            <a href="#" class="button button--primary">Читать</a>
                         </div>
-                        <a href="https://store.steampowered.com/app/1551320/Horizon_3_New_Dawn/" class="game-card__link" target="_blank" rel="noopener">Открыть в Steam</a>
-                    </div>
-                </article>
-                
-                <!-- Dragon Age: Veilguard -->
-                <article class="game-card">
-                    <div class="game-card__image-container">
-                        <img 
-                            src="https://image.api.playstation.com/vulcan/ap/rnd/202306/0510/de5e0fa63d2e3a159ca3b3c2e090e1b4e678c0c3680bd363.jpg" 
-                            alt="Dragon Age: The Veilguard"
-                            class="game-card__image"
-                            loading="lazy"
-                        >
-                        <div class="game-card__rating">
-                            <span class="game-card__rating-number">9.1</span>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/Elden Ring Shadow of the Erdtree.png" alt="Elden Ring">
+                            <span class="card__tag">Гайд</span>
                         </div>
-                    </div>
-                    <div class="game-card__content">
-                        <h3 class="game-card__title">Dragon Age: The Veilguard</h3>
-                        <p class="game-card__description">Новая глава в мире Тедаса с захватывающим сюжетом и глубокой ролевой системой.</p>
-                        <div class="game-card__meta">
-                            <span class="game-card__genre">RPG</span>
-                            <span class="game-card__release">15.01.2025</span>
+                        <div class="card__content">
+                            <h3 class="card__title">Shadow of the Erdtree: Все боссы</h3>
+                            <p class="card__description">Полное руководство по прохождению нового DLC для Elden Ring. Тактика для всех боссов и локации секретов.</p>
+                            <a href="#" class="button button--primary">Читать</a>
                         </div>
-                        <a href="https://store.steampowered.com/app/1551320/Dragon_Age_The_Veilguard/" class="game-card__link" target="_blank" rel="noopener">Открыть в Steam</a>
-                    </div>
-                </article>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/Cyberpunk 2077 Phantom Liberty.jpg" alt="Cyberpunk 2077">
+                            <span class="card__tag">Гайд</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">Phantom Liberty: Все концовки</h3>
+                            <p class="card__description">Подробный разбор всех концовок дополнения и их последствий. Как получить секретную концовку с Идрис Эльбой.</p>
+                            <a href="#" class="button button--primary">Читать</a>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="games-section-footer">
-                <a href="pages/new.html" class="btn btn-primary">Все новые игры</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Секция гайдов -->
-    <section class="guides-section">
-        <div class="container">
-            <h2 class="section-title">Гайды</h2>
-            <div class="guides-list">
-                <!-- Cyberpunk 2077 -->
-                <article class="guide-item">
-                    <div class="game-card__image-container">
-                        <img 
-                            src="https://image.api.playstation.com/vulcan/ap/rnd/202310/0214/0ce49921b34e5be1d5a14d7817ce9ce5edbe0302e77470.jpg" 
-                            alt="Cyberpunk 2077: Phantom Liberty"
-                            class="game-card__image"
-                            loading="lazy"
-                        >
-                    </div>
-                    <div class="guide-item__content">
-                        <h3 class="guide-item__title">
-                            <a href="pages/guides/cyberpunk-phantom-liberty-walkthrough.html">Полное прохождение Phantom Liberty</a>
-                        </h3>
-                        <div class="guide-item__meta">
-                            <span>Cyberpunk 2077</span> • <span>15.01.2025</span>
+        </section>
+
+        <section id="news" class="section">
+            <div class="container">
+                <h2 class="section__title">Последние новости</h2>
+                <div class="news-grid">
+                    <article class="card">
+                        <div class="card__content">
+                            <time class="card__meta">21.03.2024</time>
+                            <h3 class="card__title">S.T.A.L.K.E.R. 2 установил рекорд в Steam</h3>
+                            <p class="card__description">S.T.A.L.K.E.R. 2: Heart of Chornobyl достиг пика в более чем 200,000 одновременных игроков в первый день релиза. Игроки отмечают атмосферность и улучшенную графику, но жалуются на технические проблемы.</p>
+                            <a href="#" class="button button--primary">Подробнее</a>
                         </div>
-                        <p class="guide-item__description">
-                            Подробное руководство по всем миссиям дополнения Phantom Liberty, включая секреты и выборы.
-                        </p>
-                    </div>
-                </article>
-                
-                <!-- Baldur's Gate 3 -->
-                <article class="guide-item">
-                    <div class="game-card__image-container">
-                        <img 
-                            src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_BaldursGate3.jpg" 
-                            alt="Baldur's Gate 3"
-                            class="game-card__image"
-                            loading="lazy"
-                        >
-                    </div>
-                    <div class="guide-item__content">
-                        <h3 class="guide-item__title">
-                            <a href="pages/guides/baldurs-gate-3-best-builds.html">Лучшие билды для всех классов в Baldur's Gate 3</a>
-                        </h3>
-                        <div class="guide-item__meta">
-                            <span>Baldur's Gate 3</span> • <span>23.02.2025</span>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__content">
+                            <time class="card__meta">20.03.2024</time>
+                            <h3 class="card__title">Анонсировано DLC для Baldur's Gate 3</h3>
+                            <p class="card__description">Larian Studios анонсировала первое крупное дополнение для Baldur's Gate 3. DLC добавит новый класс, спутника и регион для исследования. Релиз запланирован на конец 2024 года.</p>
+                            <a href="#" class="button button--primary">Подробнее</a>
                         </div>
-                        <p class="guide-item__description">
-                            Оптимальные билды для всех 12 классов с подробным объяснением выбора способностей.
-                        </p>
-                    </div>
-                </article>
-                
-                <!-- Elden Ring -->
-                <article class="guide-item">
-                    <div class="game-card__image-container">
-                        <img 
-                            src="https://assets.xboxservices.com/assets/48/65/48650862-0dbc-4ff6-b404-c13b9d0e3667.jpg?n=Elden-Ring_Shadow-of-the-Erdtree_530x424.jpg" 
-                            alt="Elden Ring: Shadow of the Erdtree"
-                            class="game-card__image"
-                            loading="lazy"
-                        >
-                    </div>
-                    <div class="guide-item__content">
-                        <h3 class="guide-item__title">
-                            <a href="pages/guides/elden-ring-erdtree-bosses.html">Как победить всех боссов в Shadow of the Erdtree</a>
-                        </h3>
-                        <div class="guide-item__meta">
-                            <span>Elden Ring</span> • <span>05.03.2025</span>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__content">
+                            <time class="card__meta">19.03.2024</time>
+                            <h3 class="card__title">Новый геймплей Dragon Age: Dreadwolf</h3>
+                            <p class="card__description">BioWare показала 15 минут геймплея новой Dragon Age. Игра получила полностью боевую систему в реальном времени и открытый мир. Релиз запланирован на 2025 год.</p>
+                            <a href="#" class="button button--primary">Подробнее</a>
                         </div>
-                        <p class="guide-item__description">
-                            Пошаговые стратегии для победы над всеми боссами дополнения, включая их слабости.
-                        </p>
-                    </div>
-                </article>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__content">
+                            <time class="card__meta">18.03.2024</time>
+                            <h3 class="card__title">Elden Ring: Shadow of the Erdtree получил дату выхода</h3>
+                            <p class="card__description">FromSoftware объявила, что долгожданное дополнение для Elden Ring выйдет 21 июня 2024 года. DLC добавит новый регион размером с Limgrave и более 10 новых боссов.</p>
+                            <a href="#" class="button button--primary">Подробнее</a>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="guides-section-footer">
-                <a href="pages/guides.html" class="btn btn-primary">Все гайды</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Футер -->
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer__grid">
-                <div class="footer__column">
-                    <h3 class="footer__title">Not Just a Game</h3>
-                    <p class="footer__description">Современный портал о видеоиграх. Обзоры, новости, гайды. 2025 год.</p>
+                <div class="footer__info">
+                    <a href="index.html" class="logo">Not Just a Game</a>
+                    <p>Ваш проводник в мире игр. Мы создаем качественные гайды, пишем честные обзоры и следим за всеми новостями игровой индустрии.</p>
                 </div>
-                <div class="footer__column">
-                    <h4 class="footer__subtitle">Разделы</h4>
-                    <ul class="footer__links">
-                        <li><a href="pages/new.html">Новинки</a></li>
-                        <li><a href="pages/popular.html">Популярное</a></li>
-                        <li><a href="pages/upcoming.html">Ожидаемые</a></li>
-                        <li><a href="pages/guides.html">Гайды</a></li>
-                    </ul>
-                </div>
-                <div class="footer__column">
-                    <h4 class="footer__subtitle">Контакты</h4>
-                    <ul class="footer__links">
-                        <li><a href="mailto:info@notjustagame.com">info@notjustagame.com</a></li>
-                        <li><a href="tel:+71234567890">+7 (123) 456-78-90</a></li>
-                    </ul>
+                <nav class="footer__nav">
+                    <h4 class="footer__title">Навигация</h4>
+                    <a href="#games">Игры</a>
+                    <a href="#upcoming">Ожидаемые</a>
+                    <a href="#guides">Гайды</a>
+                    <a href="#news">Новости</a>
+                </nav>
+                <div class="footer__social">
+                    <h4 class="footer__title">Мы в соцсетях</h4>
+                    <div class="social-links">
+                        <a href="https://vk.com" class="social-link" target="_blank" rel="noopener">VK</a>
+                        <a href="https://t.me" class="social-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.com" class="social-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
                 </div>
             </div>
-            <div class="footer__copyright">
-                &copy; 2025 Not Just a Game. Все права защищены.
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2024 Not Just a Game. Все права защищены.</p>
             </div>
         </div>
     </footer>
-    
-    <!-- Скрипты -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="js/app.js"></script>
+
+    <script src="js/main.js"></script>
 </body>
 </html> 

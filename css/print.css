@@ -1,0 +1,142 @@
+@import 'theme.css';
+
+/* Основные стили для печати */
+@media print {
+    /* Скрыть ненужные элементы */
+    .header,
+    .footer,
+    .guides-filter,
+    .preloader,
+    .theme-toggle,
+    .button,
+    .game-card__link,
+    .guide-item__link {
+        display: none !important;
+    }
+
+    /* Сбросить фон и тени */
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Настроить размер страницы */
+    @page {
+        margin: 2cm;
+    }
+
+    /* Типографика */
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    h1 {
+        font-size: 24pt;
+    }
+
+    h2 {
+        font-size: 20pt;
+    }
+
+    h3 {
+        font-size: 16pt;
+    }
+
+    p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Ссылки */
+    a {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 90%;
+    }
+
+    /* Изображения */
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    /* Таблицы */
+    table {
+        border-collapse: collapse !important;
+    }
+
+    table td,
+    table th {
+        background-color: #fff !important;
+    }
+
+    /* Карточки игр */
+    .game-card {
+        break-inside: avoid;
+        border: 1px solid #000;
+        margin-bottom: 1cm;
+        padding: 0.5cm;
+    }
+
+    .game-card__image {
+        max-height: 5cm;
+        object-fit: contain;
+    }
+
+    .game-card__content {
+        padding: 0.5cm 0;
+    }
+
+    /* Гайды */
+    .guide-item {
+        break-inside: avoid;
+        border: 1px solid #000;
+        margin-bottom: 1cm;
+        padding: 0.5cm;
+    }
+
+    /* Секции */
+    .section {
+        break-before: page;
+    }
+
+    .section-title {
+        border-bottom: 1px solid #000;
+        padding-bottom: 0.5cm;
+        margin-bottom: 1cm;
+    }
+
+    /* Футер */
+    .footer__copyright {
+        border-top: 1px solid #000;
+        margin-top: 1cm;
+        padding-top: 0.5cm;
+        text-align: center;
+        font-size: 10pt;
+    }
+
+    /* Утилиты */
+    .no-print {
+        display: none !important;
+    }
+
+    .page-break {
+        break-before: page;
+    }
+
+    .avoid-break {
+        break-inside: avoid;
+    }
+} 

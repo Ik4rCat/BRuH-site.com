@@ -8,32 +8,83 @@ const THEMES = {
 
 let currentTheme = THEMES.SYSTEM;
 
-document.addEventListener('DOMContentLoaded', () => {
-    loadSavedTheme();
-    initThemeHandlers();
-});
+// Проверка поддержки localStorage
+const isLocalStorageSupported = () => {
+    try {
+        localStorage.setItem('test', 'test');
+        localStorage.removeItem('test');
+        return true;
+    } catch (e) {
+        return false;
+    }
+};
 
-function loadSavedTheme() {
-    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-    
-    if (savedTheme === 'true') {
-        document.body.classList.add('dark-theme');
-    } else if (savedTheme === 'false') {
-        document.body.classList.remove('dark-theme');
-    } else {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('dark-theme');
-        }
+// Проверка поддержки matchMedia
+const isMatchMediaSupported = () => {
+    return typeof window.matchMedia === 'function';
+};
+
+// Проверка поддержки CSS-переменных
+const isCSSVariablesSupported = () => {
+    return window.CSS && window.CSS.supports && window.CSS.supports('--fake-var', 0);
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (!isCSSVariablesSupported()) {
+        console.warn('CSS-переменные не поддерживаются в вашем браузере');
     }
     
-    updateThemeToggleIcon(document.body.classList.contains('dark-theme'));
-    updateMetaThemeColor(document.body.classList.contains('dark-theme'));
+    initTheme();
+    
+    if (isMatchMediaSupported()) {
+        initSystemThemeListener();
+    }
+});
+
+function initTheme() {
+    const themeToggle = document.querySelector('.header__theme-toggle');
+    const body = document.body;
+    
+    // Проверяем сохраненную тему
+    if (isLocalStorageSupported()) {
+        try {
+            const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+            if (savedTheme) {
+                currentTheme = savedTheme;
+                applyTheme(currentTheme);
+            } else {
+                // Проверяем системные настройки
+                if (isMatchMediaSupported()) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    currentTheme = prefersDark ? THEMES.DARK : THEMES.LIGHT;
+                } else {
+                    currentTheme = THEMES.LIGHT;
+                }
+                applyTheme(currentTheme);
+            }
+        } catch (error) {
+            console.error('Ошибка при работе с localStorage:', error);
+            currentTheme = THEMES.LIGHT;
+            applyTheme(currentTheme);
+        }
+    } else {
+        console.warn('localStorage не поддерживается в вашем браузере');
+        currentTheme = THEMES.LIGHT;
+        applyTheme(currentTheme);
+    }
+    
+    // Обработчик переключения темы
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
 }
 
 function applyTheme(theme) {
     const body = document.body;
     const isDarkMode = theme === THEMES.DARK || 
-                      (theme === THEMES.SYSTEM && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                      (theme === THEMES.SYSTEM && 
+                       isMatchMediaSupported() && 
+                       window.matchMedia('(prefers-color-scheme: dark)').matches);
     
     if (isDarkMode) {
         body.classList.add('dark-theme');
@@ -42,7 +93,6 @@ function applyTheme(theme) {
     }
     
     updateThemeToggleIcon(isDarkMode);
-    
     updateMetaThemeColor(isDarkMode);
 }
 
@@ -77,15 +127,17 @@ function updateMetaThemeColor(isDarkMode) {
 }
 
 function toggleTheme() {
-    const body = document.body;
-    const isDarkTheme = body.classList.toggle('dark-theme');
+    currentTheme = currentTheme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
     
-    localStorage.setItem(THEME_STORAGE_KEY, isDarkTheme);
+    if (isLocalStorageSupported()) {
+        try {
+            localStorage.setItem(THEME_STORAGE_KEY, currentTheme);
+        } catch (error) {
+            console.error('Ошибка при сохранении темы:', error);
+        }
+    }
     
-    updateThemeToggleIcon(isDarkTheme);
-    
-    updateMetaThemeColor(isDarkTheme);
-    
+    applyTheme(currentTheme);
     animateThemeToggle();
 }
 
@@ -99,14 +151,11 @@ function animateThemeToggle() {
     }
 }
 
-function initThemeHandlers() {
-    const themeToggle = document.querySelector('.header__theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-}
-
 function initSystemThemeListener() {
+    if (!isMatchMediaSupported()) {
+        return;
+    }
+    
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     
     darkModeMediaQuery.addEventListener('change', (e) => {

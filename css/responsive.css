@@ -1,0 +1,318 @@
+@import 'theme.css';
+
+/* Мобильные устройства (до 576px) */
+@media (max-width: var(--screen-xs)) {
+    /* Типографика */
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Контейнер */
+    .container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+
+    /* Хедер */
+    .header {
+        height: auto;
+        padding: var(--spacing-md) 0;
+    }
+
+    .header__container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .header__nav {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Герой */
+    .hero {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .hero__title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .hero__description {
+        font-size: var(--font-size-md);
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero__buttons .button {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Карточки игр */
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .game-card {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    /* Гайды */
+    .guides-list {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .guide-item {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    /* Фильтры */
+    .guides-filter {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .guides-filter__button {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Футер */
+    .footer {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .footer__links {
+        margin-top: var(--spacing-md);
+    }
+}
+
+/* Планшеты (от 577px до 768px) */
+@media (min-width: var(--screen-xs)) and (max-width: var(--screen-sm)) {
+    /* Типографика */
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-2xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Контейнер */
+    .container {
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
+    }
+
+    /* Хедер */
+    .header__nav {
+        gap: var(--spacing-md);
+    }
+
+    /* Герой */
+    .hero__title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .hero__description {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Карточки игр */
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Гайды */
+    .guides-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Футер */
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ноутбуки (от 769px до 992px) */
+@media (min-width: var(--screen-sm)) and (max-width: var(--screen-md)) {
+    /* Типографика */
+    body {
+        font-size: 16px;
+    }
+
+    /* Контейнер */
+    .container {
+        padding-left: var(--spacing-xl);
+        padding-right: var(--spacing-xl);
+    }
+
+    /* Карточки игр */
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Гайды */
+    .guides-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Футер */
+    .footer__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Десктопы (от 993px до 1200px) */
+@media (min-width: var(--screen-md)) and (max-width: var(--screen-lg)) {
+    /* Контейнер */
+    .container {
+        max-width: 960px;
+    }
+
+    /* Карточки игр */
+    .games-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Гайды */
+    .guides-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Большие десктопы (от 1201px) */
+@media (min-width: var(--screen-lg)) {
+    /* Контейнер */
+    .container {
+        max-width: 1140px;
+    }
+
+    /* Карточки игр */
+    .games-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    /* Гайды */
+    .guides-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Высокие экраны */
+@media (min-height: 1000px) {
+    .hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .section {
+        padding: var(--spacing-3xl) 0;
+    }
+}
+
+/* Ландшафтная ориентация на мобильных */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        position: relative;
+    }
+
+    .hero {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .hero__title {
+        font-size: var(--font-size-xl);
+    }
+
+    .hero__description {
+        font-size: var(--font-size-md);
+    }
+
+    .hero__buttons {
+        flex-direction: row;
+    }
+}
+
+/* Поддержка тёмной темы */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+/* Поддержка уменьшенного движения */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Поддержка высокой контрастности */
+@media (forced-colors: active) {
+    * {
+        border-color: CanvasText;
+    }
+
+    img {
+        forced-color-adjust: none;
+    }
+}
+
+/* Поддержка тёмного режима в Chrome */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+/* Поддержка тёмного режима в Firefox */
+@media (prefers-color-scheme: dark) {
+    :root {
+        scrollbar-color: var(--gray-700) var(--gray-900);
+    }
+}
+
+/* Поддержка тёмного режима в Safari */
+@media (prefers-color-scheme: dark) {
+    :root {
+        -webkit-scrollbar-track-color: var(--gray-900);
+        -webkit-scrollbar-thumb-color: var(--gray-700);
+    }
+} 

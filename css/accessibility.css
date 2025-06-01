@@ -1,0 +1,317 @@
+@import 'theme.css';
+
+/* Скрытие элементов от скринридеров */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Фокус */
+:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Улучшение контраста */
+.high-contrast {
+    --text-light: #000;
+    --text-dark: #fff;
+    --bg-light: #fff;
+    --bg-dark: #000;
+    --primary: #0000ff;
+    --primary-dark: #0000cc;
+    --gray-100: #fff;
+    --gray-200: #eee;
+    --gray-300: #ddd;
+    --gray-400: #ccc;
+    --gray-500: #999;
+    --gray-600: #666;
+    --gray-700: #333;
+    --gray-800: #222;
+    --gray-900: #111;
+}
+
+/* Улучшение читаемости */
+.readable {
+    max-width: 70ch;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* Улучшение навигации с клавиатуры */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary);
+    color: var(--text-dark);
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Улучшение форм */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+input:invalid,
+textarea:invalid,
+select:invalid {
+    border-color: var(--error);
+}
+
+.error-message {
+    color: var(--error);
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+/* Улучшение кнопок */
+button,
+.button {
+    cursor: pointer;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 16px;
+}
+
+button:focus,
+.button:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Улучшение ссылок */
+a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+/* Улучшение изображений */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img[alt=""] {
+    border: 2px dashed var(--error);
+}
+
+/* Улучшение таблиц */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: var(--gray-100);
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+}
+
+td {
+    padding: 8px;
+    border: 1px solid var(--gray-300);
+}
+
+/* Улучшение списков */
+ul,
+ol {
+    padding-left: 2em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+/* Улучшение заголовков */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+/* Улучшение параграфов */
+p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+/* Улучшение цитат */
+blockquote {
+    margin: 1em 0;
+    padding: 1em;
+    border-left: 4px solid var(--primary);
+    background-color: var(--gray-100);
+}
+
+/* Улучшение кода */
+code {
+    font-family: monospace;
+    background-color: var(--gray-100);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: var(--gray-100);
+    padding: 1em;
+    overflow-x: auto;
+    border-radius: 4px;
+}
+
+/* Улучшение навигации */
+nav {
+    margin-bottom: 1em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1em;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 0.5em;
+}
+
+nav a:hover,
+nav a:focus {
+    text-decoration: underline;
+}
+
+/* Улучшение футера */
+footer {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid var(--gray-300);
+}
+
+/* Улучшение модальных окон */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal__content {
+    background-color: var(--bg-light);
+    padding: 2em;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal__close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+/* Улучшение уведомлений */
+.notification {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    padding: 1em;
+    border-radius: 4px;
+    background-color: var(--primary);
+    color: var(--text-dark);
+    z-index: 1000;
+    max-width: 90%;
+}
+
+.notification--success {
+    background-color: var(--success);
+}
+
+.notification--error {
+    background-color: var(--error);
+}
+
+.notification--warning {
+    background-color: var(--warning);
+}
+
+/* Улучшение загрузки */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading::before {
+    content: 'Загрузка...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* Улучшение анимаций */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+} 

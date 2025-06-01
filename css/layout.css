@@ -42,6 +42,11 @@
     font-size: var(--font-size-4xl);
     margin-bottom: var(--spacing-md);
     letter-spacing: -0.02em;
+    color: var(--text-light);
+}
+
+.dark-theme .page-title {
+    color: var(--text-dark);
 }
 
 .page-description {
@@ -49,6 +54,11 @@
     max-width: 720px;
     margin: 0 auto;
     opacity: 0.8;
+    color: var(--text-light);
+}
+
+.dark-theme .page-description {
+    color: var(--text-dark);
 }
 
 /* Карточки игр на различных страницах */
@@ -111,6 +121,11 @@
     display: block;
     margin-bottom: var(--spacing-sm);
     font-weight: 500;
+    color: var(--text-light);
+}
+
+.dark-theme .guides-filters__label {
+    color: var(--text-dark);
 }
 
 .guides-filters__select {
@@ -120,6 +135,12 @@
     border-radius: var(--radius-md);
     background-color: var(--bg-light);
     color: var(--text-light);
+    transition: border-color var(--transition-fast);
+}
+
+.guides-filters__select:focus {
+    outline: none;
+    border-color: var(--primary);
 }
 
 .dark-theme .guides-filters__select {
@@ -143,6 +164,17 @@
     background: none;
     cursor: pointer;
     transition: all var(--transition-fast);
+    color: var(--text-light);
+}
+
+.dark-theme .pagination__button {
+    color: var(--text-dark);
+    border-color: var(--gray-700);
+}
+
+.pagination__button:focus {
+    outline: none;
+    border-color: var(--primary);
 }
 
 .pagination__button--active,
@@ -163,6 +195,11 @@
     align-items: center;
     justify-content: center;
     padding: var(--spacing-sm);
+    color: var(--text-light);
+}
+
+.dark-theme .pagination__ellipsis {
+    color: var(--text-dark);
 }
 
 /* Классы для создания колонок */
@@ -192,7 +229,7 @@
 }
 
 /* Медиа запросы */
-@media (max-width: 1024px) {
+@media (max-width: var(--screen-lg)) {
     .game-detail {
         grid-template-columns: 1fr;
     }
@@ -202,7 +239,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: var(--screen-md)) {
     .columns-2,
     .columns-3 {
         grid-template-columns: 1fr;
@@ -215,4 +252,39 @@
     .page-title {
         font-size: var(--font-size-3xl);
     }
+}
+
+/* Печать */
+@media print {
+    .page-header {
+        background: none;
+        padding: 0;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .guides-filters,
+    .pagination {
+        display: none;
+    }
+    
+    .game-detail,
+    .guides-page-list,
+    .games-page-grid {
+        display: block;
+    }
+    
+    .game-detail__sidebar {
+        display: none;
+    }
+}
+
+/* Доступность */
+.guides-filters__select:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.pagination__button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 } 

@@ -1,66 +1,97 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const genreFilter = document.getElementById('genre-filter');
-    const typeFilter = document.getElementById('type-filter');
-    const difficultyFilter = document.getElementById('difficulty-filter');
-    const resetButton = document.querySelector('.reset-filters-btn');
-    const guideItems = document.querySelectorAll('.guide-item');
-    const noResultsMessage = document.querySelector('.no-results-message');
-    
-    // Инициализация фильтров
-    if (!genreFilter || !typeFilter || !difficultyFilter || !resetButton) {
-        console.warn('Элементы фильтров не найдены');
+// Проверка поддержки GSAP
+const isGSAPSupported = () => {
+    return typeof gsap !== 'undefined';
+};
+
+// Функция для дебаунсинга
+const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
+// Функция для безопасной анимации
+const safeAnimate = (element, animation) => {
+    if (!isGSAPSupported()) {
+        console.warn('GSAP не поддерживается');
         return;
     }
     
-    // Обработчики событий для фильтров
-    genreFilter.addEventListener('change', applyFilters);
-    typeFilter.addEventListener('change', applyFilters);
-    difficultyFilter.addEventListener('change', applyFilters);
-    resetButton.addEventListener('click', resetFilters);
-    
-    // Применение фильтров
-    function applyFilters() {
-        const selectedGenre = genreFilter.value;
-        const selectedType = typeFilter.value;
-        const selectedDifficulty = difficultyFilter.value;
-        
-        let visibleItems = 0;
-        
-        guideItems.forEach(item => {
-            const genre = item.getAttribute('data-genre');
-            const type = item.getAttribute('data-type');
-            const difficulty = item.getAttribute('data-difficulty');
-            
-            const matchesGenre = selectedGenre === 'all' || genre === selectedGenre;
-            const matchesType = selectedType === 'all' || type === selectedType;
-            const matchesDifficulty = selectedDifficulty === 'all' || difficulty === selectedDifficulty;
-            
-            if (matchesGenre && matchesType && matchesDifficulty) {
-                item.style.display = '';
-                visibleItems++;
-            } else {
-                item.style.display = 'none';
-            }
-        });
-        
-        // Отображение сообщения, если нет результатов
-        if (visibleItems === 0) {
-            noResultsMessage.style.display = 'block';
-        } else {
-            noResultsMessage.style.display = 'none';
+    try {
+        gsap.to(element, animation);
+    } catch (error) {
+        console.error('Ошибка при анимации:', error);
+        // Применяем изменения без анимации
+        if (animation.onComplete) {
+            animation.onComplete();
         }
     }
+};
+
+// Функция для инициализации фильтра гайдов
+function initGuidesFilter() {
+    const filterButtons = document.querySelectorAll('.guides-filter__button');
+    const guideCards = document.querySelectorAll('.guide-card');
     
-    // Сброс фильтров
-    function resetFilters() {
-        genreFilter.value = 'all';
-        typeFilter.value = 'all';
-        difficultyFilter.value = 'all';
-        
-        guideItems.forEach(item => {
-            item.style.display = '';
-        });
-        
-        noResultsMessage.style.display = 'none';
+    if (!filterButtons.length || !guideCards.length) {
+        console.warn('Элементы фильтра или карточки гайдов не найдены');
+        return;
     }
-}); 
+    
+    // Функция для фильтрации гайдов
+    const filterGuides = debounce((category) => {
+        guideCards.forEach(card => {
+            if (!card) return;
+            
+            const cardCategory = card.dataset.category;
+            const shouldShow = category === 'all' || cardCategory === category;
+            
+            safeAnimate(card, {
+                opacity: shouldShow ? 1 : 0,
+                scale: shouldShow ? 1 : 0.8,
+                duration: 0.3,
+                ease: "power2.out",
+                onComplete: () => {
+                    if (card) {
+                        card.style.display = shouldShow ? 'block' : 'none';
+                    }
+                }
+            });
+        });
+    }, 300);
+    
+    // Обработчики для кнопок фильтра
+    filterButtons.forEach(button => {
+        if (!button) return;
+        
+        button.addEventListener('click', () => {
+            const category = button.dataset.category;
+            
+            // Обновляем активную кнопку
+            filterButtons.forEach(btn => {
+                if (btn) {
+                    btn.classList.remove('active');
+                }
+            });
+            button.classList.add('active');
+            
+            // Фильтруем гайды
+            filterGuides(category);
+        });
+    });
+    
+    // Активируем фильтр "Все" по умолчанию
+    const allButton = Array.from(filterButtons).find(btn => btn && btn.dataset.category === 'all');
+    if (allButton) {
+        allButton.click();
+    }
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', initGuidesFilter); 

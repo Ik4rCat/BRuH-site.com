@@ -3,226 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гайды по играм - Not Just a Game</title>
-    
-    <!-- Мета-теги -->
-    <meta name="description" content="Подробные гайды, прохождения и советы по лучшим играм 2025 года. Стань мастером в любимых играх!">
-    <meta name="keywords" content="гайды по играм, прохождение, советы, тактики, 2025, игровой портал, видеоигры">
-    <meta name="author" content="Not Just a Game Team">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Гайды по играм 2025 - Not Just a Game">
-    <meta property="og:description" content="Подробные гайды, прохождения и советы по лучшим играм 2025 года. Стань мастером в любимых играх!">
-    <meta property="og:image" content="../images/og-guides.jpg">
-    <meta property="og:url" content="https://notjustagame.com/pages/guides.html">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../favicon.png">
-    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-    
-    <!-- Шрифты -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Стили -->
-    <link rel="stylesheet" href="../css/theme.css">
+    <title>Not Just a Game - Гайды</title>
+    <meta name="description" content="Подробные гайды по популярным играм - от базовых советов до продвинутых тактик">
+    <meta name="keywords" content="гайды по играм, советы по играм, прохождение игр, игровые гайды">
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/motion.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/theme.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
     <header class="header">
         <div class="container header__container">
-            <a href="../index.html" class="header__logo">Not Just a Game</a>
+            <a href="/" class="header__logo">Not Just a Game</a>
             <nav class="header__nav">
-                <a href="new.html" class="header__link">Новинки</a>
-                <a href="popular.html" class="header__link">Популярное</a>
-                <a href="upcoming.html" class="header__link">Ожидаемые</a>
-                <a href="guides.html" class="header__link active">Гайды</a>
+                <a href="/" class="header__link">Главная</a>
+                <a href="/pages/new.html" class="header__link">Новые релизы</a>
+                <a href="/pages/popular.html" class="header__link">Популярные</a>
+                <a href="/pages/upcoming.html" class="header__link">Ожидаемые</a>
+                <a href="/pages/guides.html" class="header__link">Гайды</a>
             </nav>
             <button class="header__theme-toggle" aria-label="Переключить тему">
-                <svg class="theme-icon" width="24" height="24" viewBox="0 0 24 24">
-                    <path class="sun" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                    <path class="moon" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                <svg class="theme-icon" viewBox="0 0 24 24">
+                    <path class="sun" d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2V4c0-.55-.45-1-1-1s-1 .45-1 1v3c0 .55.45 1 1 1s1-.45 1-1zm0 14c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1s1-.45 1-1v-3c0-.55-.45-1-1-1zM4.93 6.35L3.51 4.93c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l1.42 1.42c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41zm14.14 14.14l1.42 1.42c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-1.42-1.42c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41zM4 12c0-.55-.45-1-1-1H0c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1zm20-1h-3c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1zM4.93 17.65c-.39.39-.39 1.02 0 1.41l1.42 1.42c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-1.42-1.42c-.39-.39-1.02-.39-1.41 0zm14.14-14.14c.39-.39.39-1.02 0-1.41l-1.42-1.42c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l1.42 1.42c.39.39 1.02.39 1.41 0z"/>
+                    <path class="moon" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
                 </svg>
             </button>
         </div>
     </header>
-    
-    <!-- Заголовок страницы -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">Гайды по играм</h1>
-            <p class="page-description">Подробные руководства, советы и стратегии для самых популярных игр</p>
-        </div>
-    </section>
-    
-    <!-- Содержимое страницы -->
-    <section class="guides-filters">
-        <div class="container">
-            <div class="filters-row">
-                <div class="filter-group">
-                    <label for="genre-filter">Жанр:</label>
-                    <select id="genre-filter" class="filter-select">
-                        <option value="all">Все жанры</option>
-                        <option value="rpg">RPG</option>
-                        <option value="action">Action</option>
-                        <option value="action-rpg">Action RPG</option>
-                        <option value="shooter">Shooter</option>
-                        <option value="strategy">Strategy</option>
-                        <option value="adventure">Adventure</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="type-filter">Тип:</label>
-                    <select id="type-filter" class="filter-select">
-                        <option value="all">Все типы</option>
-                        <option value="builds">Билды</option>
-                        <option value="walkthrough">Прохождение</option>
-                        <option value="bosses">Боссы</option>
-                        <option value="secrets">Секреты</option>
-                        <option value="pvp">PvP</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="difficulty-filter">Сложность:</label>
-                    <select id="difficulty-filter" class="filter-select">
-                        <option value="all">Любая</option>
-                        <option value="beginner">Начальная</option>
-                        <option value="medium">Средняя</option>
-                        <option value="hard">Высокая</option>
-                    </select>
-                </div>
-                
-                <button class="reset-filters-btn">Сбросить фильтры</button>
+
+    <main>
+        <section class="hero hero--small">
+            <div class="container">
+                <h1 class="hero__title">Гайды по играм</h1>
+                <p class="hero__description">
+                    Подробные руководства и советы для успешного прохождения игр
+                </p>
             </div>
-        </div>
-    </section>
-    
-    <section class="guides-list">
-        <div class="container">
-            <div class="guides-grid">
-                <article class="guide-item" data-genre="rpg" data-type="builds" data-difficulty="medium">
-                    <img src="../images/guides/baldurs-gate-3.jpg" alt="Лучшие билды в Baldur's Gate 3" class="guide-item__image">
-                    <div class="guide-item__content">
-                        <div class="guide-item__tags">
-                            <span class="tag tag--genre">RPG</span>
-                            <span class="tag tag--type">Билды</span>
-                            <span class="tag tag--difficulty">Средний</span>
-                            <span class="tag tag--date">15.06.2024</span>
+        </section>
+
+        <section class="guides-section">
+            <div class="container">
+                <div class="guides-filter">
+                    <button class="guides-filter__button active" data-category="all">Все гайды</button>
+                    <button class="guides-filter__button" data-category="beginner">Для начинающих</button>
+                    <button class="guides-filter__button" data-category="advanced">Продвинутые</button>
+                    <button class="guides-filter__button" data-category="tips">Советы и трюки</button>
+                </div>
+
+                <div class="guides-grid">
+                    <article class="guide-card" data-category="beginner">
+                        <div class="guide-card__image-container">
+                            <img src="../img/guides/cyberpunk.jpg" alt="Cyberpunk 2077" class="guide-card__image">
                         </div>
-                        <h3 class="guide-item__title">Лучшие билды в Baldur's Gate 3</h3>
-                        <p class="guide-item__description">Оптимальные билды для всех классов с подробным объяснением выбора способностей, заклинаний и мультиклассирования.</p>
-                        <a href="guides/baldurs-gate-3-best-builds.html" class="guide-item__link">Читать гайд</a>
-                    </div>
-                </article>
-                
-                <article class="guide-item" data-genre="action-rpg" data-type="bosses" data-difficulty="hard">
-                    <img src="../images/guides/elden-ring.jpg" alt="Как победить всех боссов Эрдрева в Elden Ring" class="guide-item__image">
-                    <div class="guide-item__content">
-                        <div class="guide-item__tags">
-                            <span class="tag tag--genre">Action RPG</span>
-                            <span class="tag tag--type">Боссы</span>
-                            <span class="tag tag--difficulty">Высокий</span>
-                            <span class="tag tag--date">10.05.2024</span>
+                        <div class="guide-card__content">
+                            <h3 class="guide-card__title">Начало игры в Cyberpunk 2077</h3>
+                            <p class="guide-card__description">Базовые советы для новичков в Night City</p>
+                            <div class="guide-card__meta">
+                                <span class="guide-card__category">Для начинающих</span>
+                                <span class="guide-card__date">15.03.2024</span>
+                            </div>
+                            <a href="/pages/guides/cyberpunk.html" class="guide-card__link">Читать гайд</a>
                         </div>
-                        <h3 class="guide-item__title">Как победить всех боссов Эрдрева в Elden Ring</h3>
-                        <p class="guide-item__description">Стратегии и тактики для победы над всеми основными боссами Эрдрева в Elden Ring.</p>
-                        <a href="guides/elden-ring-erdtree-bosses.html" class="guide-item__link">Читать гайд</a>
-                    </div>
-                </article>
-                
-                <article class="guide-item" data-genre="rpg" data-type="walkthrough" data-difficulty="beginner">
-                    <img src="../images/guides/cyberpunk-2077.jpg" alt="Полное прохождение Cyberpunk 2077" class="guide-item__image">
-                    <div class="guide-item__content">
-                        <div class="guide-item__tags">
-                            <span class="tag tag--genre">RPG</span>
-                            <span class="tag tag--type">Прохождение</span>
-                            <span class="tag tag--difficulty">Начальный</span>
-                            <span class="tag tag--date">20.04.2024</span>
+                    </article>
+
+                    <article class="guide-card" data-category="advanced">
+                        <div class="guide-card__image-container">
+                            <img src="../img/guides/baldurs-gate.jpg" alt="Baldur's Gate 3" class="guide-card__image">
                         </div>
-                        <h3 class="guide-item__title">Полное прохождение Cyberpunk 2077</h3>
-                        <p class="guide-item__description">Подробное руководство по основному сюжету и побочным заданиям Cyberpunk 2077.</p>
-                        <a href="#" class="guide-item__link coming-soon">Скоро</a>
-                    </div>
-                </article>
-                
-                <article class="guide-item" data-genre="action-rpg" data-type="secrets" data-difficulty="medium">
-                    <img src="../images/guides/god-of-war.jpg" alt="Все секреты God of War Ragnarök" class="guide-item__image">
-                    <div class="guide-item__content">
-                        <div class="guide-item__tags">
-                            <span class="tag tag--genre">Action RPG</span>
-                            <span class="tag tag--type">Секреты</span>
-                            <span class="tag tag--difficulty">Средний</span>
-                            <span class="tag tag--date">05.04.2024</span>
+                        <div class="guide-card__content">
+                            <h3 class="guide-card__title">Продвинутые тактики в Baldur's Gate 3</h3>
+                            <p class="guide-card__description">Секреты успешного прохождения сложных сражений</p>
+                            <div class="guide-card__meta">
+                                <span class="guide-card__category">Продвинутые</span>
+                                <span class="guide-card__date">10.03.2024</span>
+                            </div>
+                            <a href="/pages/guides/baldurs-gate.html" class="guide-card__link">Читать гайд</a>
                         </div>
-                        <h3 class="guide-item__title">Все секреты God of War Ragnarök</h3>
-                        <p class="guide-item__description">Расположение всех коллекционных предметов, сундуков Норнир и секретных боссов.</p>
-                        <a href="#" class="guide-item__link coming-soon">Скоро</a>
-                    </div>
-                </article>
-                
-                <article class="guide-item" data-genre="action" data-type="walkthrough" data-difficulty="medium">
-                    <img src="../images/guides/starfield.jpg" alt="Гайд для начинающих в Starfield" class="guide-item__image">
-                    <div class="guide-item__content">
-                        <div class="guide-item__tags">
-                            <span class="tag tag--genre">Action</span>
-                            <span class="tag tag--type">Прохождение</span>
-                            <span class="tag tag--difficulty">Средний</span>
-                            <span class="tag tag--date">15.03.2024</span>
+                    </article>
+
+                    <article class="guide-card" data-category="tips">
+                        <div class="guide-card__image-container">
+                            <img src="../img/guides/elden-ring.jpg" alt="Elden Ring" class="guide-card__image">
                         </div>
-                        <h3 class="guide-item__title">Гайд для начинающих в Starfield</h3>
-                        <p class="guide-item__description">Советы и рекомендации по исследованию космоса, созданию баз и кораблей в Starfield.</p>
-                        <a href="#" class="guide-item__link coming-soon">Скоро</a>
-                    </div>
-                </article>
+                        <div class="guide-card__content">
+                            <h3 class="guide-card__title">Секреты Elden Ring</h3>
+                            <p class="guide-card__description">Скрытые локации и секретные предметы</p>
+                            <div class="guide-card__meta">
+                                <span class="guide-card__category">Советы и трюки</span>
+                                <span class="guide-card__date">05.03.2024</span>
+                            </div>
+                            <a href="/pages/guides/elden-ring.html" class="guide-card__link">Читать гайд</a>
+                        </div>
+                    </article>
+
+                    <article class="guide-card" data-category="beginner">
+                        <div class="guide-card__image-container">
+                            <img src="../img/guides/god-of-war.jpg" alt="God of War Ragnarök" class="guide-card__image">
+                        </div>
+                        <div class="guide-card__content">
+                            <h3 class="guide-card__title">Основы боя в God of War Ragnarök</h3>
+                            <p class="guide-card__description">Базовые механики и комбо для начинающих</p>
+                            <div class="guide-card__meta">
+                                <span class="guide-card__category">Для начинающих</span>
+                                <span class="guide-card__date">01.03.2024</span>
+                            </div>
+                            <a href="/pages/guides/god-of-war.html" class="guide-card__link">Читать гайд</a>
+                        </div>
+                    </article>
+
+                    <article class="guide-card" data-category="advanced">
+                        <div class="guide-card__image-container">
+                            <img src="../img/guides/starfield.jpg" alt="Starfield" class="guide-card__image">
+                        </div>
+                        <div class="guide-card__content">
+                            <h3 class="guide-card__title">Продвинутое строительство в Starfield</h3>
+                            <p class="guide-card__description">Создание эффективных космических станций</p>
+                            <div class="guide-card__meta">
+                                <span class="guide-card__category">Продвинутые</span>
+                                <span class="guide-card__date">25.02.2024</span>
+                            </div>
+                            <a href="/pages/guides/starfield.html" class="guide-card__link">Читать гайд</a>
+                        </div>
+                    </article>
+
+                    <article class="guide-card" data-category="tips">
+                        <div class="guide-card__image-container">
+                            <img src="../img/guides/cyberpunk.jpg" alt="Cyberpunk 2077" class="guide-card__image">
+                        </div>
+                        <div class="guide-card__content">
+                            <h3 class="guide-card__title">Секретные концовки Cyberpunk 2077</h3>
+                            <p class="guide-card__description">Как получить все возможные финалы игры</p>
+                            <div class="guide-card__meta">
+                                <span class="guide-card__category">Советы и трюки</span>
+                                <span class="guide-card__date">20.02.2024</span>
+                            </div>
+                            <a href="/pages/guides/cyberpunk-endings.html" class="guide-card__link">Читать гайд</a>
+                        </div>
+                    </article>
+                </div>
             </div>
-            
-            <div class="no-results-message" style="display: none;">
-                <p>По выбранным фильтрам ничего не найдено. Попробуйте изменить параметры фильтрации.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Футер -->
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer__grid">
                 <div class="footer__column">
                     <h3 class="footer__title">Not Just a Game</h3>
-                    <p class="footer__description">Современный портал о видеоиграх. Обзоры, новости, гайды. 2025 год.</p>
+                    <p class="footer__description">
+                        Ваш портал в мир игр. Новости, обзоры, гайды и многое другое.
+                    </p>
                 </div>
                 <div class="footer__column">
                     <h4 class="footer__subtitle">Разделы</h4>
                     <ul class="footer__links">
-                        <li><a href="new.html">Новинки</a></li>
-                        <li><a href="popular.html">Популярное</a></li>
-                        <li><a href="upcoming.html">Ожидаемые</a></li>
-                        <li><a href="guides.html">Гайды</a></li>
+                        <li><a href="/pages/new.html">Новые релизы</a></li>
+                        <li><a href="/pages/popular.html">Популярные игры</a></li>
+                        <li><a href="/pages/upcoming.html">Ожидаемые игры</a></li>
+                        <li><a href="/pages/guides.html">Гайды</a></li>
                     </ul>
                 </div>
                 <div class="footer__column">
-                    <h4 class="footer__subtitle">Контакты</h4>
+                    <h4 class="footer__subtitle">Социальные сети</h4>
                     <ul class="footer__links">
-                        <li><a href="mailto:info@notjustagame.com">info@notjustagame.com</a></li>
-                        <li><a href="tel:+71234567890">+7 (123) 456-78-90</a></li>
+                        <li><a href="https://vk.com" target="_blank">ВКонтакте</a></li>
+                        <li><a href="https://t.me" target="_blank">Telegram</a></li>
+                        <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+                        <li><a href="https://discord.com" target="_blank">Discord</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer__copyright">
-                &copy; 2025 Not Just a Game. Все права защищены.
+                © 2024 Not Just a Game. Все права защищены.
             </div>
         </div>
     </footer>
-    
-    <!-- Скрипты -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="../js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="../js/theme.js"></script>
     <script src="../js/guides-filter.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 </html> 
