@@ -16,8 +16,15 @@
             <nav class="nav">
                 <a href="#games" class="nav__link">Игры</a>
                 <a href="#upcoming" class="nav__link">Ожидаемые</a>
-                <a href="#guides" class="nav__link">Гайды</a>
-                <a href="#news" class="nav__link">Новости</a>
+                <a href="guides/index.html" class="nav__link">Гайды</a>
+                <a href="news/index.html" class="nav__link">Новости</a>
+                <button class="header__theme-toggle" aria-label="Переключить тему">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path class="sun" d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"/>
+                        <path class="sun" d="M12 1V3M12 21V23M1 12H3M21 12H23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"/>
+                        <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" style="display: none;"/>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
@@ -193,13 +200,28 @@
                             </div>
                         </div>
                     </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="img/games/DRAGON'S DOGMA 2.png" alt="Dragon's Dogma 2">
+                            <span class="card__tag">Action RPG</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">Dragon's Dogma 2</h3>
+                            <p class="card__description">Продолжение культовой ролевой игры от Capcom. Исследуйте огромный фэнтезийный мир и сражайтесь с эпическими боссами.</p>
+                            <div class="card__meta">
+                                <span>22 марта 2024</span>
+                                <span>PC, PS5, Xbox Series X|S</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <section id="guides" class="section">
             <div class="container">
-                <h2 class="section__title">Гайды</h2>
+                <h2 class="section__title">ГАЙДЫ</h2>
                 <div class="guides-grid">
                     <article class="card">
                         <div class="card__image">
@@ -261,12 +283,15 @@
                         </div>
                     </article>
                 </div>
+                <div class="section__footer">
+                    <a href="guides/index_guides.html" class="button button--primary">БОЛЬШЕ ГАЙДОВ</a>
+                </div>
             </div>
         </section>
 
         <section id="news" class="section">
             <div class="container">
-                <h2 class="section__title">Последние новости</h2>
+                <h2 class="section__title">ПОСЛЕДНИЕ НОВОСТИ</h2>
                 <div class="news-grid">
                     <article class="card">
                         <div class="card__content">
@@ -303,6 +328,18 @@
                             <a href="#" class="button button--primary">Подробнее</a>
                         </div>
                     </article>
+
+                    <article class="card">
+                        <div class="card__content">
+                            <time class="card__meta">20.12.2023</time>
+                            <h3 class="card__title">DRAGON'S DOGMA 2: ДАТА ВЫХОДА И ПОДРОБНОСТИ</h3>
+                            <p class="card__description">CAPCOM ОФИЦИАЛЬНО АНОНСИРОВАЛА ДАТУ ВЫХОДА DRAGON'S DOGMA 2. ИГРА ПОЯВИТСЯ 22 МАРТА 2024 ГОДА НА PS5, XBOX SERIES X|S И PC. РАЗРАБОТЧИКИ ОБЕЩАЮТ РЕВОЛЮЦИОННУЮ БОЕВУЮ СИСТЕМУ И МАСШТАБНЫЙ ОТКРЫТЫЙ МИР.</p>
+                            <a href="news/dragons-dogma-2-announcement.html" class="button button--primary">ПОДРОБНЕЕ</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="section__footer">
+                    <a href="news/index_news.html" class="button button--primary">БОЛЬШЕ НОВОСТЕЙ</a>
                 </div>
             </div>
         </section>
@@ -338,5 +375,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
 </body>
 </html> 

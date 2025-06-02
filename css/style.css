@@ -51,6 +51,7 @@
     --bg-light: var(--bg-dark);
     --bg-card: var(--bg-card-dark);
     --text-light: var(--text-dark);
+    --shadow-lg: 4px 4px 0 rgba(255, 255, 255, 1);
 }
 
 /* Базовые стили */
@@ -164,6 +165,22 @@ a {
     font-weight: 700;
     text-align: center;
     margin-bottom: var(--spacing-2xl);
+}
+
+.section__footer {
+    margin-top: var(--spacing-2xl);
+    text-align: center;
+}
+
+.section__footer .button {
+    font-size: 1.25rem;
+    padding: var(--spacing-md) var(--spacing-2xl);
+    border-width: 2px;
+}
+
+.section__footer .button:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Сетки */
@@ -548,4 +565,37 @@ a {
 .hero__buttons {
     display: flex;
     gap: var(--spacing-md);
+}
+
+.header__theme-toggle {
+    background: none;
+    border: 2px solid var(--text-light);
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 16px;
+    color: var(--text-light);
+    transition: transform var(--transition-normal);
+}
+
+.header__theme-toggle:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.header__theme-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+.animate-spin {
+    animation: spin 0.3s ease-in-out;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 } 

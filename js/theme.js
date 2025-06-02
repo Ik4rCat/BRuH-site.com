@@ -1,4 +1,4 @@
-const THEME_STORAGE_KEY = 'notJustAGame_theme';
+const THEME_KEY = 'notJustAGame_theme';
 
 const THEMES = {
     LIGHT: 'light',
@@ -37,48 +37,74 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('CSS-переменные не поддерживаются в вашем браузере');
     }
     
-    initTheme();
-    
-    if (isMatchMediaSupported()) {
-        initSystemThemeListener();
-    }
-});
-
-function initTheme() {
     const themeToggle = document.querySelector('.header__theme-toggle');
     const body = document.body;
     
     // Проверяем сохраненную тему
-    if (isLocalStorageSupported()) {
-        try {
-            const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-            if (savedTheme) {
-                currentTheme = savedTheme;
-                applyTheme(currentTheme);
-            } else {
-                // Проверяем системные настройки
-                if (isMatchMediaSupported()) {
-                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    currentTheme = prefersDark ? THEMES.DARK : THEMES.LIGHT;
-                } else {
-                    currentTheme = THEMES.LIGHT;
-                }
-                applyTheme(currentTheme);
-            }
-        } catch (error) {
-            console.error('Ошибка при работе с localStorage:', error);
-            currentTheme = THEMES.LIGHT;
-            applyTheme(currentTheme);
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    
+    if (savedTheme) {
+        // Используем сохраненную тему
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-theme');
+            updateThemeIcon(true);
         }
     } else {
-        console.warn('localStorage не поддерживается в вашем браузере');
-        currentTheme = THEMES.LIGHT;
-        applyTheme(currentTheme);
+        // Проверяем системные настройки
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            body.classList.add('dark-theme');
+            updateThemeIcon(true);
+            localStorage.setItem(THEME_KEY, 'dark');
+        } else {
+            localStorage.setItem(THEME_KEY, 'light');
+        }
     }
     
-    // Обработчик переключения темы
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
+    // Слушаем изменения системной темы
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem(THEME_KEY)) { // Только если пользователь не выбрал тему вручную
+            if (e.matches) {
+                body.classList.add('dark-theme');
+                updateThemeIcon(true);
+                localStorage.setItem(THEME_KEY, 'dark');
+            } else {
+                body.classList.remove('dark-theme');
+                updateThemeIcon(false);
+                localStorage.setItem(THEME_KEY, 'light');
+            }
+        }
+    });
+    
+    // Обработчик клика по кнопке
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        const isDark = body.classList.contains('dark-theme');
+        
+        // Сохраняем выбор пользователя
+        localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+        
+        // Обновляем иконку
+        updateThemeIcon(isDark);
+        
+        // Добавляем анимацию
+        themeToggle.classList.add('animate-spin');
+        setTimeout(() => {
+            themeToggle.classList.remove('animate-spin');
+        }, 300);
+    });
+});
+
+function updateThemeIcon(isDark) {
+    const sunPaths = document.querySelectorAll('.sun');
+    const moonPath = document.querySelector('.moon');
+    
+    if (isDark) {
+        sunPaths.forEach(path => path.style.display = 'none');
+        moonPath.style.display = 'block';
+    } else {
+        sunPaths.forEach(path => path.style.display = 'block');
+        moonPath.style.display = 'none';
     }
 }
 
@@ -127,31 +153,6 @@ function updateMetaThemeColor(isDarkMode) {
     }
     
     metaThemeColor.content = isDarkMode ? '#121212' : '#ffffff';
-}
-
-function toggleTheme() {
-    currentTheme = currentTheme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
-    
-    if (isLocalStorageSupported()) {
-        try {
-            localStorage.setItem(THEME_STORAGE_KEY, currentTheme);
-        } catch (error) {
-            console.error('Ошибка при сохранении темы:', error);
-        }
-    }
-    
-    applyTheme(currentTheme);
-    animateThemeToggle();
-}
-
-function animateThemeToggle() {
-    const themeToggle = document.querySelector('.header__theme-toggle');
-    if (themeToggle) {
-        themeToggle.classList.add('animate-spin');
-        setTimeout(() => {
-            themeToggle.classList.remove('animate-spin');
-        }, 300);
-    }
 }
 
 function initSystemThemeListener() {
