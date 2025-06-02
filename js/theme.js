@@ -29,6 +29,9 @@ const isCSSVariablesSupported = () => {
     return window.CSS && window.CSS.supports && window.CSS.supports('--fake-var', 0);
 };
 
+// Определение поддержки системной темы
+const isSystemDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
 document.addEventListener('DOMContentLoaded', () => {
     if (!isCSSVariablesSupported()) {
         console.warn('CSS-переменные не поддерживаются в вашем браузере');
@@ -163,4 +166,16 @@ function initSystemThemeListener() {
             applyTheme(THEMES.SYSTEM);
         }
     });
-} 
+}
+
+// Слушатель изменения системной темы
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (e.matches) {
+        document.body.classList.add('dark-theme');
+    } else {
+        document.body.classList.remove('dark-theme');
+    }
+});
+
+// Применяем тему при загрузке страницы
+document.addEventListener('DOMContentLoaded', applyTheme); 
