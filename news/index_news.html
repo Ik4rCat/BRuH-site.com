@@ -5,95 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Новости - Not Just a Game</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <a href="../index.html" class="logo">Not Just a Game</a>
             <nav class="nav">
-                <a href="../index.html">ГЛАВНАЯ</a>
-                <a href="../guides/index.html">ГАЙДЫ</a>
-                <a href="index.html">НОВОСТИ</a>
+                <a href="../index.html#games" class="nav__link">Игры</a>
+                <a href="../index.html#upcoming" class="nav__link">Ожидаемые</a>
+                <a href="../guides/index_guides.html" class="nav__link">Гайды</a>
+                <a href="index_news.html" class="nav__link">Новости</a>
+                <button class="header__theme-toggle" aria-label="Переключить тему">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path class="sun" d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"/>
+                        <path class="sun" d="M12 1V3M12 21V23M1 12H3M21 12H23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"/>
+                        <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" style="display: none;"/>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="section container">
-            <h1 class="section__title">ПОСЛЕДНИЕ НОВОСТИ</h1>
-            
-            <div class="news-grid">
-                <article class="card">
-                    <div class="card__image">
-                        <img src="../img/games/dragons-dogma-2.jpg" alt="Dragon's Dogma 2">
-                        <span class="card__tag">АНОНС</span>
-                    </div>
-                    <div class="card__content">
-                        <h2 class="card__title">DRAGON'S DOGMA 2: ДАТА ВЫХОДА</h2>
-                        <p class="card__description">CAPCOM АНОНСИРОВАЛА ДАТУ ВЫХОДА DRAGON'S DOGMA 2 И ПОДЕЛИЛАСЬ НОВЫМИ ПОДРОБНОСТЯМИ ОБ ИГРЕ.</p>
-                        <div class="card__meta">
-                            <span>20 декабря 2023</span>
-                            <a href="dragons-dogma-2-announcement.html">ЧИТАТЬ ДАЛЕЕ</a>
-                        </div>
-                    </div>
-                </article>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Новости игровой индустрии</h1>
+                    <p class="hero__subtitle">Самые свежие новости, анонсы и события из мира видеоигр</p>
+                </div>
+            </div>
+        </section>
 
-                <article class="card">
-                    <div class="card__image">
-                        <img src="../img/games/GtaVI.png" alt="GTA VI">
-                        <span class="card__tag">АНАЛИЗ</span>
-                    </div>
-                    <div class="card__content">
-                        <h2 class="card__title">GTA VI: АНАЛИЗ ТРЕЙЛЕРА</h2>
-                        <p class="card__description">ДЕТАЛЬНЫЙ РАЗБОР ПЕРВОГО ТРЕЙЛЕРА GRAND THEFT AUTO VI. ЧТО НАМ ПОКАЗАЛИ И ЧЕГО ЖДАТЬ ОТ ИГРЫ?</p>
-                        <div class="card__meta">
-                            <span>5 декабря 2023</span>
-                            <a href="gta6-trailer-analysis.html">ЧИТАТЬ ДАЛЕЕ</a>
+        <section class="section">
+            <div class="container">
+                <h2 class="section__title">Последние новости</h2>
+                <div class="news-grid">
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="../img/games/S.T.A.L.K.E.R. 2 Heart of Chornobyl.jpg" alt="S.T.A.L.K.E.R. 2">
+                            <span class="card__tag">Релиз</span>
                         </div>
-                    </div>
-                </article>
+                        <div class="card__content">
+                            <time class="card__meta">21.03.2024</time>
+                            <h3 class="card__title">S.T.A.L.K.E.R. 2: Успешный старт</h3>
+                            <p class="card__description">GSC Game World сообщает об успешном запуске игры и делится планами на будущее. Разработчики обещают новый контент в ближайшие месяцы.</p>
+                            <a href="stalker2-success.html" class="button button--secondary">Подробнее</a>
+                        </div>
+                    </article>
 
-                <article class="card">
-                    <div class="card__image">
-                        <img src="../img/games/Arc raiders.jpg" alt="Arc Raiders">
-                        <span class="card__tag">БЕТА-ТЕСТ</span>
-                    </div>
-                    <div class="card__content">
-                        <h2 class="card__title">ARC RAIDERS: СТАРТ БЕТЫ</h2>
-                        <p class="card__description">EMBARK STUDIOS АНОНСИРОВАЛА ДАТЫ ЗАКРЫТОГО БЕТА-ТЕСТИРОВАНИЯ ARC RAIDERS. ЧТО НОВОГО ЖДЕТ ИГРОКОВ?</p>
-                        <div class="card__meta">
-                            <span>15 декабря 2023</span>
-                            <a href="arc-raiders-beta.html">ЧИТАТЬ ДАЛЕЕ</a>
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="../img/games/DRAGON'S DOGMA 2.png" alt="Dragon's Dogma 2">
+                            <span class="card__tag">Анонс</span>
                         </div>
-                    </div>
-                </article>
+                        <div class="card__content">
+                            <time class="card__meta">15.03.2024</time>
+                            <h3 class="card__title">Dragon's Dogma 2: Масштабное возвращение</h3>
+                            <p class="card__description">До выхода Dragon's Dogma 2 осталась всего неделя. Capcom поделилась финальными подробностями о своём амбициозном проекте.</p>
+                            <a href="dragons-dogma-2-announcement.html" class="button button--secondary">Подробнее</a>
+                        </div>
+                    </article>
 
-                <article class="card">
-                    <div class="card__image">
-                        <img src="../img/games/S.T.A.L.K.E.R. 2 Heart of Chornobyl.jpg" alt="S.T.A.L.K.E.R. 2">
-                        <span class="card__tag">Релиз</span>
-                    </div>
-                    <div class="card__content">
-                        <h2 class="card__title">S.T.A.L.K.E.R. 2: Дата выхода</h2>
-                        <p class="card__description">GSC Game World назвала точную дату выхода S.T.A.L.K.E.R. 2: Heart of Chornobyl - сентябрь 2024.</p>
-                        <div class="card__meta">
-                            <span>1 декабря 2023</span>
-                            <a href="stalker2-success.html">Читать далее</a>
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="../img/games/GtaVI.png" alt="GTA VI">
+                            <span class="card__tag">Анализ</span>
                         </div>
-                    </div>
-                </article>
+                        <div class="card__content">
+                            <time class="card__meta">05.03.2024</time>
+                            <h3 class="card__title">GTA VI: Анализ трейлера</h3>
+                            <p class="card__description">Детальный разбор первого трейлера Grand Theft Auto VI. Что нам показали и чего ждать от игры?</p>
+                            <a href="gta6-trailer-analysis.html" class="button button--secondary">Подробнее</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="../img/games/Arc raiders.jpg" alt="Arc Raiders">
+                            <span class="card__tag">Бета-тест</span>
+                        </div>
+                        <div class="card__content">
+                            <time class="card__meta">01.03.2024</time>
+                            <h3 class="card__title">Arc Raiders: Старт беты</h3>
+                            <p class="card__description">Embark Studios анонсировала даты закрытого бета-тестирования Arc Raiders. Что нового ждет игроков?</p>
+                            <a href="arc-raiders-beta.html" class="button button--secondary">Подробнее</a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="container">
+            <div class="footer__grid">
+                <div class="footer__info">
+                    <a href="../index.html" class="logo">Not Just a Game</a>
+                    <p>Ваш проводник в мире игр. Мы создаем качественные гайды, пишем честные обзоры и следим за всеми новостями игровой индустрии.</p>
+                </div>
+                <nav class="footer__nav">
+                    <h4 class="footer__title">Навигация</h4>
+                    <a href="../index.html#games">Игры</a>
+                    <a href="../index.html#upcoming">Ожидаемые</a>
+                    <a href="../guides/index_guides.html">Гайды</a>
+                    <a href="index_news.html">Новости</a>
+                </nav>
+                <div class="footer__social">
+                    <h4 class="footer__title">Мы в соцсетях</h4>
+                    <div class="social-links">
+                        <a href="https://vk.com" class="social-link" target="_blank" rel="noopener">VK</a>
+                        <a href="https://t.me" class="social-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.com" class="social-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
             <div class="footer__bottom">
-                <p class="footer__copyright">© 2024 Not Just a Game. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+                <p class="footer__copyright">© 2024 Not Just a Game. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
+    <script src="../js/main.js"></script>
     <script src="../js/theme.js"></script>
 </body>
 </html> 

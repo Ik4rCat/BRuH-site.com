@@ -5,80 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Гайды - Not Just a Game</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <a href="../index.html" class="logo">Not Just a Game</a>
             <nav class="nav">
-                <a href="../index.html">Главная</a>
-                <a href="index.html">Гайды</a>
-                <a href="../news/index.html">Новости</a>
+                <a href="../index.html#games" class="nav__link">Игры</a>
+                <a href="../index.html#upcoming" class="nav__link">Ожидаемые</a>
+                <a href="index_guides.html" class="nav__link">Гайды</a>
+                <a href="../news/index_news.html" class="nav__link">Новости</a>
+                <button class="header__theme-toggle" aria-label="Переключить тему">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path class="sun" d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"/>
+                        <path class="sun" d="M12 1V3M12 21V23M1 12H3M21 12H23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"/>
+                        <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" style="display: none;"/>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="section container">
-            <h1 class="section__title">Гайды по играм</h1>
-            
-            <div class="guides-grid">
-                <article class="card">
-                    <div class="card__image">
-                        <img src="../img/games/Cyberpunk 2077 Phantom Liberty.jpg" alt="Cyberpunk 2077">
-                        <span class="card__tag">Обновлено</span>
-                    </div>
-                    <div class="card__content">
-                        <h2 class="card__title">Cyberpunk 2077: Phantom Liberty</h2>
-                        <p class="card__description">Полное руководство по прохождению, билдам и секретам Найт-Сити после обновления 2.0.</p>
-                        <div class="card__meta">
-                            <span>10 декабря 2023</span>
-                            <a href="cyberpunk-phantom-liberty-guide.html">Читать гайд</a>
-                        </div>
-                    </div>
-                </article>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Гайды по играм</h1>
+                    <p class="hero__subtitle">Подробные руководства, советы и секреты от экспертов игровой индустрии</p>
+                </div>
+            </div>
+        </section>
 
-                <article class="card">
-                    <div class="card__image">
-                        <img src="../img/games/Baldur's Gate 3.jpeg" alt="Baldur's Gate 3">
-                        <span class="card__tag">RPG</span>
-                    </div>
-                    <div class="card__content">
-                        <h2 class="card__title">Baldur's Gate 3</h2>
-                        <p class="card__description">Советы по прохождению, лучшие билды для каждого класса и секреты третьего акта.</p>
-                        <div class="card__meta">
-                            <span>5 декабря 2023</span>
-                            <a href="baldurs-gate-3-guide.html">Читать гайд</a>
+        <section class="section">
+            <div class="container">
+                <h2 class="section__title">Последние гайды</h2>
+                <div class="guides-grid">
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="../img/games/S.T.A.L.K.E.R. 2 Heart of Chornobyl.jpg" alt="S.T.A.L.K.E.R. 2">
+                            <span class="card__tag">Гайд</span>
                         </div>
-                    </div>
-                </article>
+                        <div class="card__content">
+                            <h3 class="card__title">S.T.A.L.K.E.R. 2: Путеводитель по Зоне</h3>
+                            <p class="card__description">Подробный гайд по выживанию в Зоне. Узнайте все о снаряжении, аномалиях и тактиках борьбы с мутантами.</p>
+                            <div class="card__meta">
+                                <span>Март 2024</span>
+                                <a href="stalker2-zone-guide.html" class="button button--secondary">Читать</a>
+                            </div>
+                        </div>
+                    </article>
 
-                <article class="card">
-                    <div class="card__image">
-                        <img src="../img/games/Elden Ring Shadow of the Erdtree.png" alt="Elden Ring">
-                        <span class="card__tag">Action RPG</span>
-                    </div>
-                    <div class="card__content">
-                        <h2 class="card__title">Elden Ring: Shadow of the Erdtree</h2>
-                        <p class="card__description">Руководство по прохождению DLC, тактики борьбы с боссами и секреты нового контента.</p>
-                        <div class="card__meta">
-                            <span>1 декабря 2023</span>
-                            <a href="elden-ring-shadow-guide.html">Читать гайд</a>
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="../img/games/Baldur's Gate 3.jpeg" alt="Baldur's Gate 3">
+                            <span class="card__tag">Гайд</span>
                         </div>
-                    </div>
-                </article>
+                        <div class="card__content">
+                            <h3 class="card__title">Baldur's Gate 3: Мастерство создания персонажа</h3>
+                            <p class="card__description">Руководство по созданию и развитию персонажа. Все о классах, расах и оптимальных билдах.</p>
+                            <div class="card__meta">
+                                <span>Март 2024</span>
+                                <a href="baldurs-gate-3-guide.html" class="button button--secondary">Читать</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="../img/games/Elden Ring Shadow of the Erdtree.png" alt="Elden Ring">
+                            <span class="card__tag">Гайд</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">Elden Ring: Shadow of the Erdtree</h3>
+                            <p class="card__description">Полное руководство по прохождению DLC. Боссы, секреты и новое снаряжение.</p>
+                            <div class="card__meta">
+                                <span>Март 2024</span>
+                                <a href="elden-ring-shadow-guide.html" class="button button--secondary">Читать</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card__image">
+                            <img src="../img/games/Cyberpunk 2077 Phantom Liberty.jpg" alt="Cyberpunk 2077">
+                            <span class="card__tag">Гайд</span>
+                        </div>
+                        <div class="card__content">
+                            <h3 class="card__title">Cyberpunk 2077: Phantom Liberty</h3>
+                            <p class="card__description">Руководство по всем путям прохождения DLC. Все концовки и секретные локации.</p>
+                            <div class="card__meta">
+                                <span>Март 2024</span>
+                                <a href="cyberpunk-phantom-liberty-guide.html" class="button button--secondary">Читать</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="container">
+            <div class="footer__grid">
+                <div class="footer__info">
+                    <a href="../index.html" class="logo">Not Just a Game</a>
+                    <p>Ваш проводник в мире игр. Мы создаем качественные гайды, пишем честные обзоры и следим за всеми новостями игровой индустрии.</p>
+                </div>
+                <nav class="footer__nav">
+                    <h4 class="footer__title">Навигация</h4>
+                    <a href="../index.html#games">Игры</a>
+                    <a href="../index.html#upcoming">Ожидаемые</a>
+                    <a href="index_guides.html">Гайды</a>
+                    <a href="../news/index_news.html">Новости</a>
+                </nav>
+                <div class="footer__social">
+                    <h4 class="footer__title">Мы в соцсетях</h4>
+                    <div class="social-links">
+                        <a href="https://vk.com" class="social-link" target="_blank" rel="noopener">VK</a>
+                        <a href="https://t.me" class="social-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.com" class="social-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
             <div class="footer__bottom">
                 <p class="footer__copyright">© 2024 Not Just a Game. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
+    <script src="../js/main.js"></script>
     <script src="../js/theme.js"></script>
 </body>
 </html> 
